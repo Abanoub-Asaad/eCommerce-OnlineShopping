@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toast.makeText(MainActivity.this, "Made by: Abanoub Asaad",Toast.LENGTH_LONG).show();
+        //Toast.makeText(MainActivity.this, "Made by: Abanoub Asaad",Toast.LENGTH_LONG).show();
 
         joinNowButton = (Button) findViewById(R.id.main_join_now_btn);
         loginbutton = (Button) findViewById(R.id.main_login_btn);
@@ -26,6 +26,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent  = new Intent(MainActivity.this, loginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        joinNowButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent  = new Intent(MainActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }
         });
