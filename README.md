@@ -1,2 +1,2 @@
-# E-Commerce-Android-App-
+# E-Commerce
 An Android Application like Amazon.
