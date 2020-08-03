@@ -57,6 +57,18 @@
         android:textStyle="bold" />
 
     <ImageView
+        android:id="@+id/eye_login"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/login_password_input"
+        android:layout_alignBottom="@+id/login_password_input"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="9dp"
+        android:src="@drawable/eye"></ImageView>
+
+    <ImageView
         android:id="@+id/login_applogo"
         android:layout_width="300dp"
         android:layout_height="100dp"

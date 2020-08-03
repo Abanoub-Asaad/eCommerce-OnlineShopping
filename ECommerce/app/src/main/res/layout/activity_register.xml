@@ -31,6 +31,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginTop="6dp"
         android:layout_marginRight="15dp"
+        android:maxLines="1"
         android:background="@drawable/input_design"
         android:hint="Name"
         android:padding="20dp"
@@ -72,6 +73,18 @@
         android:textColorHint="@android:color/tertiary_text_light"
         android:textSize="17sp"
         android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/eye_register"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/register_password_input"
+        android:layout_alignBottom="@+id/register_password_input"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/eye"></ImageView>
 
     <ImageView
         android:id="@+id/register_applogo"

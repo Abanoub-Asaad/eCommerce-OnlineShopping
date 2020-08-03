@@ -26,7 +26,7 @@ public class HomeActivity extends AppCompatActivity {
 
                 Paper.book().destroy();
 
-                Intent intent  = new Intent(HomeActivity.this, MainActivity.class);
+                Intent intent = new Intent(HomeActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });

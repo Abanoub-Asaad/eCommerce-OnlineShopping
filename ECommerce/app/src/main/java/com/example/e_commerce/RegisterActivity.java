@@ -7,9 +7,12 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -28,6 +31,8 @@ public class RegisterActivity extends AppCompatActivity {
     private Button createAccountButton;
     private EditText inputName, inputPhoneNumber, inputPassword;
     private ProgressDialog loadingBar;
+    private ImageView eye_password_register;
+    private boolean passwordIsHidden = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +43,30 @@ public class RegisterActivity extends AppCompatActivity {
         inputName = (EditText) findViewById(R.id.register_username_input);
         inputPhoneNumber = (EditText) findViewById(R.id.register_phone_input);
         inputPassword = (EditText) findViewById(R.id.register_password_input);
+        eye_password_register = (ImageView) findViewById(R.id.eye_register);
 
         createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 creatAccount();
+            }
+        });
+
+        eye_password_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (passwordIsHidden) {
+                    // show password
+                    passwordIsHidden = false;
+                    inputPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                } else {
+                    // hide password
+                    passwordIsHidden = true;
+                    inputPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+                // set cursor to the end of the password text
+                inputPassword.setSelection(inputPassword.getText().toString().length());
             }
         });
 
