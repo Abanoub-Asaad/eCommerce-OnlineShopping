@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/register"
+    android:background="@drawable/back7"
     tools:context=".RegisterActivity">
 
     <Button
@@ -34,8 +34,8 @@
         android:background="@drawable/input_design"
         android:hint="Name"
         android:padding="20dp"
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/tertiary_text_light"
         android:textSize="17sp"
         android:textStyle="bold" />
 
@@ -51,8 +51,8 @@
         android:hint="Phone Number"
         android:inputType="number"
         android:padding="20dp"
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/tertiary_text_light"
         android:textSize="17sp"
         android:textStyle="bold" />
 
@@ -68,8 +68,8 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:padding="20dp"
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/tertiary_text_light"
         android:textSize="17sp"
         android:textStyle="bold" />
 
