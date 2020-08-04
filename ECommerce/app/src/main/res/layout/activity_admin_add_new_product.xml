@@ -1,9 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AdminAddNewProductActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--android:scaleType="centerCrop"-->
+    <ImageView
+        android:id="@+id/select_product_image"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:layout_below="@+id/slogan_select_product_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:cropToPadding="false"
+        android:src="@drawable/download" />
+
+    <ImageView
+        android:id="@+id/select_product_small_image"
+        android:layout_width="114dp"
+        android:layout_height="66dp"
+        android:layout_alignTop="@+id/select_product_image"
+        android:layout_alignBottom="@+id/select_product_image"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="201dp"
+        android:layout_marginTop="109dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginBottom="25dp"
+        android:cropToPadding="false"
+        android:src="@drawable/select_img" />
+
+    <TextView
+        android:id="@+id/slogan_select_product_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:text=" Select Product Image"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="15sp"
+        android:textStyle="italic|bold" />
+
+    <EditText
+        android:id="@+id/product_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/select_product_image"
+        android:layout_marginTop="20dp"
+        android:hint="Product Name "
+        android:padding="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:maxLines="1"
+        android:background="@drawable/input_design"/>
+
+    <EditText
+        android:id="@+id/product_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/product_name"
+        android:layout_marginTop="6dp"
+        android:hint="Product Description "
+        android:maxLines="1"
+        android:padding="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/input_design"/>
+
+    <EditText
+        android:id="@+id/product_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/product_description"
+        android:layout_marginTop="6dp"
+        android:hint="Product Price"
+        android:padding="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:maxLines="1"
+        android:background="@drawable/input_design"/>
+
+    <Button
+        android:id="@+id/add_new_product_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/product_price"
+        android:padding="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:text="Add Product"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        android:background="@drawable/buttons"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        />
+
+</RelativeLayout>
