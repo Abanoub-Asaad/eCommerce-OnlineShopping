@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back7"
+    android:background="@drawable/back8"
     tools:context=".RegisterActivity">
 
     <Button
@@ -88,11 +88,11 @@
 
     <ImageView
         android:id="@+id/register_applogo"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
+        android:layout_width="400dp"
+        android:layout_height="150dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
-        android:src="@drawable/applogo"></ImageView>
+        android:layout_marginTop="150dp"
+        android:src="@drawable/app_logo_2"></ImageView>
 
 
 </RelativeLayout>

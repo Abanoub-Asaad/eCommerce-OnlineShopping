@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back5"
+    android:background="@drawable/back6"
     tools:context=".loginActivity">
 
     <Button
@@ -70,11 +70,11 @@
 
     <ImageView
         android:id="@+id/login_applogo"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
+        android:layout_width="400dp"
+        android:layout_height="150dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
-        android:src="@drawable/applogo"></ImageView>
+        android:layout_marginTop="150dp"
+        android:src="@drawable/app_logo_2"></ImageView>
 
     <LinearLayout
         android:id="@+id/linear_layout_1"
@@ -86,7 +86,7 @@
 
         <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/remember_me_check_box"
-            style="@style/Widget.AppCompat.ImageButton"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

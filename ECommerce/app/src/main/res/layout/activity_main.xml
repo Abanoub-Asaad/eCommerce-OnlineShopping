@@ -43,22 +43,23 @@
   <ImageView
 
       android:id="@+id/app_logo"
-      android:layout_width="300dp"
-      android:layout_height="100dp"
+      android:layout_width="400dp"
+      android:layout_height="150dp"
       android:layout_centerHorizontal="true"
       android:layout_marginTop="60dp"
-      android:src="@drawable/applogo" />
+      android:src="@drawable/app_logo_2" />
 
   <TextView
 
       android:id="@+id/app_slogan"
-      android:layout_width="220dp"
+      android:layout_width="260dp"
       android:layout_height="wrap_content"
       android:layout_centerHorizontal="true"
-      android:layout_marginTop="145dp"
+      android:layout_marginTop="2dp"
       android:text="Find, Discover, Choose and Buy anything Online"
       android:textAlignment="center"
       android:textColor="@color/colorPrimary"
+      android:layout_below="@+id/app_logo"
       android:textSize="22sp"
       android:textStyle="bold|italic" />
 </RelativeLayout>
