@@ -113,7 +113,7 @@ public class loginActivity extends AppCompatActivity {
             Toast.makeText(this, "Password should contain at least 6 characters", Toast.LENGTH_SHORT).show();
         else {
             loadingBar = new ProgressDialog(loginActivity.this);
-            loadingBar.setTitle("Login Account");
+            loadingBar.setTitle("Create Account");
             loadingBar.setMessage("Please wait, while we are checking the credentials");
             loadingBar.setCanceledOnTouchOutside(false);
             loadingBar.show();

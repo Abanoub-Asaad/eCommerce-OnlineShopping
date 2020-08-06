@@ -40,4 +40,10 @@
         android:name="com.example.e_commerce.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
+    <activity
+        android:id="@+id/nav_logout"
+        android:name="com.example.e_commerce.loginActivity"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/activity_login" />
 </navigation>

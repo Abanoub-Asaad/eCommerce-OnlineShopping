@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         loginbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent  = new Intent(MainActivity.this, loginActivity.class);
+                Intent intent = new Intent(MainActivity.this, loginActivity.class);
                 startActivity(intent);
             }
         });
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         joinNowButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent  = new Intent(MainActivity.this, RegisterActivity.class);
+                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }
         });
@@ -57,23 +57,19 @@ public class MainActivity extends AppCompatActivity {
         String UserPhoneKey = Paper.book().read(Prevalent.userPhoneKey);
         String UserPasswordKey = Paper.book().read(Prevalent.userPasswordKey);
 
-        if(UserPhoneKey!="" && UserPasswordKey!="")
-        {
-            if(!TextUtils.isEmpty(UserPhoneKey) && !TextUtils.isEmpty(UserPasswordKey))
-            {
+        if (UserPhoneKey != "" && UserPasswordKey != "") {
+            if (!TextUtils.isEmpty(UserPhoneKey) && !TextUtils.isEmpty(UserPasswordKey)) {
                 allowAccess(UserPhoneKey, UserPasswordKey);
 
                 loadingBar.setTitle("Already logged in");
-                loadingBar.setMessage("Please wait.......");
+                loadingBar.setMessage("Please wait .....");
                 loadingBar.setCanceledOnTouchOutside(false);
                 loadingBar.show();
             }
         }
-
-
     }
 
-    private void allowAccess(final String phone, final String password ){
+    private void allowAccess(final String phone, final String password) {
 
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
@@ -82,28 +78,20 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.child(parentDbName).child(phone).exists())
-                {
+                if (snapshot.child(parentDbName).child(phone).exists()) {
                     Users usersData = snapshot.child(parentDbName).child(phone).getValue(Users.class);
-                    if(usersData.getPassword().equals(password))
-                    {
+                    if (usersData.getPassword().equals(password)) {
                         loadingBar.dismiss();
-                        Toast.makeText(MainActivity.this, "Please wait, you are already logged in....", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Welcom Back :)", Toast.LENGTH_SHORT).show();
 
                         Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                         startActivity(intent);
-                    }
-                    else
-                    {
+                    } else {
                         loadingBar.dismiss();
-                        Toast.makeText(MainActivity.this, "Password is incorrect", Toast.LENGTH_SHORT).show();
                     }
 
-                }
-                else
-                {
+                } else {
                     loadingBar.dismiss();
-                    Toast.makeText(MainActivity.this, "Account with this "+phone+" number doesn't exist", Toast.LENGTH_SHORT).show();
                 }
             }
 
