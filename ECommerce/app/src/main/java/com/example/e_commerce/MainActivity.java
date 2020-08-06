@@ -59,12 +59,12 @@ public class MainActivity extends AppCompatActivity {
 
         if (UserPhoneKey != "" && UserPasswordKey != "") {
             if (!TextUtils.isEmpty(UserPhoneKey) && !TextUtils.isEmpty(UserPasswordKey)) {
-                allowAccess(UserPhoneKey, UserPasswordKey);
-
-                loadingBar.setTitle("Already logged in");
-                loadingBar.setMessage("Please wait .....");
-                loadingBar.setCanceledOnTouchOutside(false);
-                loadingBar.show();
+               // allowAccess(UserPhoneKey, UserPasswordKey);
+//
+//                loadingBar.setTitle("Already logged in");
+//                loadingBar.setMessage("Please wait .....");
+//                loadingBar.setCanceledOnTouchOutside(false);
+//                loadingBar.show();
             }
         }
     }
@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Welcom Back :)", Toast.LENGTH_SHORT).show();
 
                         Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+
                         startActivity(intent);
                     } else {
                         loadingBar.dismiss();

@@ -1,7 +1,7 @@
 package com.example.e_commerce.Model;
 
 public class Users {
-    private String name, phone, password;
+    private static String name, phone, password;
 
     public Users() {
     }

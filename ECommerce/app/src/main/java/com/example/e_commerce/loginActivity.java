@@ -113,7 +113,7 @@ public class loginActivity extends AppCompatActivity {
             Toast.makeText(this, "Password should contain at least 6 characters", Toast.LENGTH_SHORT).show();
         else {
             loadingBar = new ProgressDialog(loginActivity.this);
-            loadingBar.setTitle("Create Account");
+            loadingBar.setTitle("Login Account");
             loadingBar.setMessage("Please wait, while we are checking the credentials");
             loadingBar.setCanceledOnTouchOutside(false);
             loadingBar.show();
@@ -140,10 +140,14 @@ public class loginActivity extends AppCompatActivity {
                     Users usersData = snapshot.child(parentDbName).child(phone).getValue(Users.class);
                     if (usersData.getPassword().equals(password)) {
                         if (parentDbName.equals("Users")) {
+
                             loadingBar.dismiss();
                             Toast.makeText(loginActivity.this, "Logged in Successfully...", Toast.LENGTH_SHORT).show();
 
                             Intent intent = new Intent(loginActivity.this, HomeActivity.class);
+                            Prevalent.currentOnlineUser = usersData;
+                            System.out.println(Prevalent.currentOnlineUser.getName());
+
                             startActivity(intent);
                         } else if (parentDbName.equals("Admins")) {
                             loadingBar.dismiss();
