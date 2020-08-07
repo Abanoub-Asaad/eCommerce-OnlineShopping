@@ -60,10 +60,16 @@ public class RegisterActivity extends AppCompatActivity {
                     // show password
                     passwordIsHidden = false;
                     inputPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+
+                    ImageView image_view  = (ImageView) findViewById(R.id.eye_register);
+                    image_view.setImageResource(R.drawable.invisible_eye);
                 } else {
                     // hide password
                     passwordIsHidden = true;
                     inputPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+
+                    ImageView image_view  = (ImageView) findViewById(R.id.eye_register);
+                    image_view.setImageResource(R.drawable.eye);
                 }
                 // set cursor to the end of the password text
                 inputPassword.setSelection(inputPassword.getText().toString().length());

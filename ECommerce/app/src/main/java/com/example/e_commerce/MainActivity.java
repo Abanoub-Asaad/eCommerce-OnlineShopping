@@ -59,12 +59,12 @@ public class MainActivity extends AppCompatActivity {
 
         if (UserPhoneKey != "" && UserPasswordKey != "") {
             if (!TextUtils.isEmpty(UserPhoneKey) && !TextUtils.isEmpty(UserPasswordKey)) {
-               // allowAccess(UserPhoneKey, UserPasswordKey);
-//
-//                loadingBar.setTitle("Already logged in");
-//                loadingBar.setMessage("Please wait .....");
-//                loadingBar.setCanceledOnTouchOutside(false);
-//                loadingBar.show();
+                allowAccess(UserPhoneKey, UserPasswordKey);
+
+                loadingBar.setTitle("Already logged in");
+                loadingBar.setMessage("Please wait .....");
+                loadingBar.setCanceledOnTouchOutside(false);
+                loadingBar.show();
             }
         }
     }
@@ -78,19 +78,23 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.child(parentDbName).child(phone).exists()) {
-                    Users usersData = snapshot.child(parentDbName).child(phone).getValue(Users.class);
-                    if (usersData.getPassword().equals(password)) {
-                        loadingBar.dismiss();
-                        Toast.makeText(MainActivity.this, "Welcom Back :)", Toast.LENGTH_SHORT).show();
+                if (snapshot.child("Users").child(phone).exists()) {
 
-                        Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                    Users usersData = snapshot.child("Users").child(phone).getValue(Users.class);
 
-                        startActivity(intent);
-                    } else {
-                        loadingBar.dismiss();
+                    if (usersData.getPhone().equals(phone)) {
+                        if (usersData.getPassword().equals(password)) {
+                            Toast.makeText(MainActivity.this, "Please wait, you are already logged in...", Toast.LENGTH_SHORT).show();
+                            loadingBar.dismiss();
+
+                            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                            Prevalent.currentOnlineUser = usersData;
+                            startActivity(intent);
+                        } else {
+                            loadingBar.dismiss();
+                            Toast.makeText(MainActivity.this, "Password is incorrect.", Toast.LENGTH_SHORT).show();
+                        }
                     }
-
                 } else {
                     loadingBar.dismiss();
                 }

@@ -46,4 +46,10 @@
         android:name="com.example.e_commerce.loginActivity"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/activity_login" />
+
+    <activity
+        android:id="@+id/nav_settings"
+        android:name="com.example.e_commerce.ui.settings.SettingsActivity"
+        android:label="Settings"
+        tools:layout="@layout/activity_settings" />
 </navigation>

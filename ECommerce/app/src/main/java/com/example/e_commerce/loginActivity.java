@@ -89,10 +89,16 @@ public class loginActivity extends AppCompatActivity {
                     // show password
                     passwordIsHidden = false;
                     passwordEditText.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+
+                    ImageView image_view  = (ImageView) findViewById(R.id.eye_login);
+                    image_view.setImageResource(R.drawable.invisible_eye);
                 } else {
                     // hide password
                     passwordIsHidden = true;
                     passwordEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
+
+                    ImageView image_view  = (ImageView) findViewById(R.id.eye_login);
+                    image_view.setImageResource(R.drawable.eye);
                 }
                 // set cursor to the end of the password text
                 passwordEditText.setSelection(passwordEditText.getText().toString().length());
