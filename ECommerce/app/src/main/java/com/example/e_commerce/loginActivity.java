@@ -51,6 +51,7 @@ public class loginActivity extends AppCompatActivity {
         adminLink = (TextView) findViewById(R.id.admin_panel_link);
         notAdminLink = (TextView) findViewById(R.id.not_admin_panel_link);
         eye_password_login = (ImageView) findViewById(R.id.eye_login);
+        loadingBar = new ProgressDialog(loginActivity.this);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,7 +119,7 @@ public class loginActivity extends AppCompatActivity {
         else if (password.length() < 6)
             Toast.makeText(this, "Password should contain at least 6 characters", Toast.LENGTH_SHORT).show();
         else {
-            loadingBar = new ProgressDialog(loginActivity.this);
+
             loadingBar.setTitle("Login Account");
             loadingBar.setMessage("Please wait, while we are checking the credentials");
             loadingBar.setCanceledOnTouchOutside(false);
@@ -133,6 +134,8 @@ public class loginActivity extends AppCompatActivity {
         if (chkBoxRememberMe.isChecked()) {
             Paper.book().write(Prevalent.userPhoneKey, phone);
             Paper.book().write(Prevalent.userPasswordKey, password);
+        }else{
+            Paper.book().destroy();
         }
 
         final DatabaseReference RootRef;

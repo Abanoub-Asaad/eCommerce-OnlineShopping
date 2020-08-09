@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(intent);
                         } else {
                             loadingBar.dismiss();
-                            Toast.makeText(MainActivity.this, "Password is incorrect.", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(MainActivity.this, "Password is incorrect.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 } else {
