@@ -29,11 +29,7 @@
             app:argType="string" />
     </fragment>
 
-    <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.e_commerce.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+
 
     <fragment
         android:id="@+id/nav_slideshow"
@@ -52,4 +48,10 @@
         android:name="com.example.e_commerce.ui.settings.SettingsActivity"
         android:label="Settings"
         tools:layout="@layout/activity_settings" />
+    <activity
+        android:id="@+id/nav_cart"
+        android:name="com.example.e_commerce.ui.cart.CartActivity"
+        android:label="Cart"
+        tools:layout="@layout/activity_cart" />
+
 </navigation>
