@@ -2,9 +2,9 @@ package com.example.e_commerce.Model;
 
 public class Products {
 
-        private static String product_name, product_price, product_description, product_id, date, time, product_image, category;
+        private String product_name, product_price, product_description, product_id, date, time, product_image, category;
 
-        Products(){
+        public Products(){
 
         }
 
@@ -19,67 +19,67 @@ public class Products {
                 this.category = category;
         }
 
-        public static String getProduct_name() {
-                return product_name;
-        }
+    public String getProduct_name() {
+        return product_name;
+    }
 
-        public static void setProduct_name(String product_name) {
-                Products.product_name = product_name;
-        }
+    public void setProduct_name(String product_name) {
+        this.product_name = product_name;
+    }
 
-        public static String getProduct_price() {
-                return product_price;
-        }
+    public String getProduct_price() {
+        return product_price;
+    }
 
-        public static void setProduct_price(String product_price) {
-                Products.product_price = product_price;
-        }
+    public void setProduct_price(String product_price) {
+        this.product_price = product_price;
+    }
 
-        public static String getProduct_description() {
-                return product_description;
-        }
+    public String getProduct_description() {
+        return product_description;
+    }
 
-        public static void setProduct_description(String product_description) {
-                Products.product_description = product_description;
-        }
+    public void setProduct_description(String product_description) {
+        this.product_description = product_description;
+    }
 
-        public static String getProduct_id() {
-                return product_id;
-        }
+    public String getProduct_id() {
+        return product_id;
+    }
 
-        public static void setProduct_id(String product_id) {
-                Products.product_id = product_id;
-        }
+    public void setProduct_id(String product_id) {
+        this.product_id = product_id;
+    }
 
-        public static String getDate() {
-                return date;
-        }
+    public String getDate() {
+        return date;
+    }
 
-        public static void setDate(String date) {
-                Products.date = date;
-        }
+    public void setDate(String date) {
+        this.date = date;
+    }
 
-        public static String getTime() {
-                return time;
-        }
+    public String getTime() {
+        return time;
+    }
 
-        public static void setTime(String time) {
-                Products.time = time;
-        }
+    public void setTime(String time) {
+        this.time = time;
+    }
 
-        public static String getProduct_image() {
-                return product_image;
-        }
+    public String getProduct_image() {
+        return product_image;
+    }
 
-        public static void setProduct_image(String product_image) {
-                Products.product_image = product_image;
-        }
+    public void setProduct_image(String product_image) {
+        this.product_image = product_image;
+    }
 
-        public static String getCategory() {
-                return category;
-        }
+    public String getCategory() {
+        return category;
+    }
 
-        public static void setCategory(String category) {
-                Products.category = category;
-        }
+    public void setCategory(String category) {
+        this.category = category;
+    }
 }

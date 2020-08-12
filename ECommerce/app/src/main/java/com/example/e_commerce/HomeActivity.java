@@ -1,16 +1,27 @@
 package com.example.e_commerce;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.e_commerce.Model.Products;
 import com.example.e_commerce.Prevalent.Prevalent;
+import com.example.e_commerce.ViewHolder.ProductViewHolder;
+import com.example.e_commerce.ui.home2.Home2Activity;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,14 +33,36 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.paperdb.Paper;
 
 public class HomeActivity extends AppCompatActivity {
 
+    private DatabaseReference ProductRef;
+    private RecyclerView recyclerView;
+    private RecyclerView.LayoutManager layoutManager;
+    private ArrayList<Products> arrayList;
+    private FirebaseRecyclerOptions<Products> options;
+    private FirebaseRecyclerAdapter<Products, ProductViewHolder> adapter;
+
+    @Override
+    protected void onStart() {
+        adapter.startListening();
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        adapter.stopListening();
+        super.onStop();
+    }
     private AppBarConfiguration mAppBarConfiguration;
 
     @Override
@@ -54,7 +87,7 @@ public class HomeActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_slideshow, R.id.nav_settings, R.id.nav_logout, R.id.nav_cart)
+                R.id.nav_home_abnb, R.id.nav_slideshow, R.id.nav_settings, R.id.nav_logout, R.id.nav_cart)
                 .setDrawerLayout(drawer)
                 .build();
 
@@ -87,6 +120,46 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
+
+        ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
+        ProductRef.keepSynced(true);
+        recyclerView = findViewById(R.id.recycler_menu);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        arrayList = new ArrayList<Products>();
+
+        options =
+                new FirebaseRecyclerOptions.Builder<Products>()
+                        .setQuery(ProductRef, Products.class)
+                        .build();
+
+        adapter =
+                new FirebaseRecyclerAdapter<Products, ProductViewHolder>(options) {
+                    @SuppressLint("SetTextI18n")
+                    @Override
+                    protected void onBindViewHolder(@NonNull ProductViewHolder productViewHolder, int i, @NonNull Products products) {
+
+                        productViewHolder.txtProductName.setText(products.getProduct_name());
+                        productViewHolder.txtProductPrice.setText("Price = " + products.getProduct_price());
+                        productViewHolder.txtProductDescription.setText(products.getProduct_description());
+
+                        Picasso.get().load(products.getProduct_image()).into(productViewHolder.imageView);
+
+                    }
+
+                    @NonNull
+                    @Override
+                    public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+                        View view = LayoutInflater.from(HomeActivity.this).inflate(R.layout.product_items_layout, parent, false);
+                        ProductViewHolder holder = new ProductViewHolder(view);
+
+                        return holder;
+
+                    }
+                };
+        recyclerView.setAdapter(adapter);
     }
 
     @Override
