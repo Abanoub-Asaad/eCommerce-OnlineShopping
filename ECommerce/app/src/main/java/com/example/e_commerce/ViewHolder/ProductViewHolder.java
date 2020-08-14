@@ -26,4 +26,5 @@ public class ProductViewHolder extends RecyclerView.ViewHolder  {
         txtProductPrice = (TextView) itemView.findViewById(R.id.product_price_home);
         txtProductDescription = (TextView) itemView.findViewById(R.id.product_description_home);
     }
+
 }

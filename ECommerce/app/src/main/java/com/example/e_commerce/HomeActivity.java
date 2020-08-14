@@ -3,6 +3,7 @@ package com.example.e_commerce;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.e_commerce.Interface.ItemClickListner;
 import com.example.e_commerce.Model.Products;
 import com.example.e_commerce.Prevalent.Prevalent;
 import com.example.e_commerce.ViewHolder.ProductViewHolder;
@@ -43,8 +45,9 @@ import java.util.ArrayList;
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.paperdb.Paper;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity  {
 
+    private CircleImageView profileImageView;
     private DatabaseReference ProductRef;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
@@ -121,11 +124,22 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+
+//        profileImageView = (CircleImageView) findViewById(R.id.profile_image);
+//        Picasso.get().load(Prevalent.currentOnlineUser.getImage()).placeholder(R.drawable.profile).into(profileImageView);
+
         ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
         ProductRef.keepSynced(true);
         recyclerView = findViewById(R.id.recycler_menu);
         recyclerView.setHasFixedSize(true);
+        /**
+         * Vertical Scrolling
+         */
         layoutManager = new LinearLayoutManager(this);
+        /**
+         * Horizontal Scrolling
+         */
+        //layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
         arrayList = new ArrayList<Products>();
 
@@ -138,7 +152,7 @@ public class HomeActivity extends AppCompatActivity {
                 new FirebaseRecyclerAdapter<Products, ProductViewHolder>(options) {
                     @SuppressLint("SetTextI18n")
                     @Override
-                    protected void onBindViewHolder(@NonNull ProductViewHolder productViewHolder, int i, @NonNull Products products) {
+                    protected void onBindViewHolder(@NonNull ProductViewHolder productViewHolder, int i, @NonNull final Products products) {
 
                         productViewHolder.txtProductName.setText(products.getProduct_name());
                         productViewHolder.txtProductPrice.setText("Price = " + products.getProduct_price());
@@ -146,6 +160,14 @@ public class HomeActivity extends AppCompatActivity {
 
                         Picasso.get().load(products.getProduct_image()).into(productViewHolder.imageView);
 
+                        productViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(HomeActivity.this, ProductDetailsActivity.class);
+                                intent.putExtra("product_id", products.getProduct_id());
+                                startActivity(intent);
+                            }
+                        });
                     }
 
                     @NonNull
@@ -175,4 +197,32 @@ public class HomeActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+
+    /**
+     * when the user clicks back twice, he'll shut off the app
+     */
+    boolean doubleBackToExitPressedOnce = false;
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+                System.exit(0);
+            }
+        }, 2000);
+    }
+
+
 }
