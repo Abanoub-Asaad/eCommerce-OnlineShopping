@@ -16,7 +16,6 @@ public class ProductViewHolder extends RecyclerView.ViewHolder  {
 
     public TextView txtProductName, txtProductDescription, txtProductPrice;
     public ImageView imageView;
-    public ItemClickListner listner;
 
     public ProductViewHolder(@NonNull View itemView) {
         super(itemView);

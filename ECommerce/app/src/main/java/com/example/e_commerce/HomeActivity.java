@@ -15,6 +15,7 @@ import com.example.e_commerce.Interface.ItemClickListner;
 import com.example.e_commerce.Model.Products;
 import com.example.e_commerce.Prevalent.Prevalent;
 import com.example.e_commerce.ViewHolder.ProductViewHolder;
+import com.example.e_commerce.ui.cart.CartActivity;
 import com.example.e_commerce.ui.home2.Home2Activity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -45,7 +46,7 @@ import java.util.ArrayList;
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.paperdb.Paper;
 
-public class HomeActivity extends AppCompatActivity  {
+public class HomeActivity extends AppCompatActivity {
 
     private CircleImageView profileImageView;
     private DatabaseReference ProductRef;
@@ -66,6 +67,7 @@ public class HomeActivity extends AppCompatActivity  {
         adapter.stopListening();
         super.onStop();
     }
+
     private AppBarConfiguration mAppBarConfiguration;
 
     @Override
@@ -77,14 +79,20 @@ public class HomeActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_home);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
+                finish();
+                Intent intent = new Intent(HomeActivity.this, CartActivity.class);
+                startActivity(intent);
+                //  Toast.makeText(HomeActivity.this, "Hi Bebo", Toast.LENGTH_SHORT).show();
+
             }
         });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -108,7 +116,7 @@ public class HomeActivity extends AppCompatActivity  {
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
                 int id = destination.getId();
 
-                if(id == R.id.nav_logout){
+                if (id == R.id.nav_logout) {
                     Toast.makeText(HomeActivity.this, "Logout", Toast.LENGTH_SHORT).show();
                     Paper.book().destroy();
 //
@@ -117,7 +125,7 @@ public class HomeActivity extends AppCompatActivity  {
 //
 //                    startActivity(intent);
 //                    finish();
-                }else if(id == R.id.nav_settings){
+                } else if (id == R.id.nav_settings) {
 
                 }
 
@@ -199,29 +207,11 @@ public class HomeActivity extends AppCompatActivity  {
     }
 
 
-    /**
-     * when the user clicks back twice, he'll shut off the app
-     */
-    boolean doubleBackToExitPressedOnce = false;
-
     @Override
     public void onBackPressed() {
-        if (doubleBackToExitPressedOnce) {
-            super.onBackPressed();
-            return;
-        }
-
-        this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
-
-        new Handler().postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                doubleBackToExitPressedOnce=false;
-                System.exit(0);
-            }
-        }, 2000);
+        super.onBackPressed();
+        finish();
+        System.exit(0);
     }
 
 

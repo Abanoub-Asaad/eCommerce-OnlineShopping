@@ -52,6 +52,8 @@ public class LoginActivity extends AppCompatActivity {
         eye_password_login = (ImageView) findViewById(R.id.eye_login);
         loadingBar = new ProgressDialog(LoginActivity.this);
 
+        Paper.book().destroy();
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
