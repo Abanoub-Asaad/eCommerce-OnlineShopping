@@ -1,10 +1,12 @@
 package com.example.e_commerce;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.e_commerce.Model.Products;
@@ -13,20 +15,15 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.rey.material.widget.FloatingActionButton;
-import com.rey.material.widget.ImageView;
-import com.rey.material.widget.TextView;
 import com.squareup.picasso.Picasso;
-
-import org.w3c.dom.Text;
 
 public class ProductDetailsActivity extends AppCompatActivity {
 
-    private FloatingActionButton addToCart;
-    private ImageView productImage;
     private ElegantNumberButton numberBtn;
+    private Button addToCartBtn;
     private TextView productName, productDescription, productPrice;
-    private String productID ="";
+    private ImageView productImage;
+    private String productID = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,44 +32,49 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
         productID = getIntent().getStringExtra("product_id");
 
+        productName = (TextView) findViewById(R.id.product_name_details);
+        productDescription = (TextView) findViewById(R.id.product_description_details);
+        productPrice = (TextView) findViewById(R.id.product_price_details);
+        numberBtn = (ElegantNumberButton) findViewById(R.id.number_of_items_btn);
+        productImage = (ImageView) findViewById(R.id.product_image_details);
+        addToCartBtn = (Button) findViewById(R.id.add_to_cart_btn_details);
 
-//        addToCart = (FloatingActionButton) findViewById(R.id.add_product_to_cart_fab);
-//        productImage = (ImageView) findViewById(R.id.product_image_details);
-//        numberBtn = (ElegantNumberButton) findViewById(R.id.number_of_items_btn);
-//
-//        productName = (TextView) findViewById(R.id.product_name_details);
-//        productDescription = (TextView) findViewById(R.id.product_description_details);
-//        productPrice = (TextView) findViewById(R.id.product_price_details);
+        getProductDetails(productID);
 
-         //getProductDetails(productID);
+        addToCartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddProductToCartList();
+            }
+        });
     }
 
-    private void getProductDetails(String productID){
+    private void AddProductToCartList(){
 
-        DatabaseReference productRef = FirebaseDatabase.getInstance().getReference().child("products");
+    }
 
-        productRef.child(productID).addValueEventListener(new ValueEventListener() {
+    private void getProductDetails(String productID) {
+        DatabaseReference productsRef = FirebaseDatabase.getInstance().getReference().child("Products");
+
+        productsRef.child(productID).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
-                    Products products = snapshot.getValue(Products.class);
-
-
-                    //Toast.makeText(ProductDetailsActivity.this, products.getProduct_name().toString(), Toast.LENGTH_SHORT ).show();
-                    System.out.println(products.getProduct_name().toString());
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    Products products = dataSnapshot.getValue(Products.class);
 
                     productName.setText(products.getProduct_name());
+                    productPrice.setText(products.getProduct_price());
                     productDescription.setText(products.getProduct_description());
-                    productPrice.setText("Price = "+products.getProduct_price());
-
                     Picasso.get().load(products.getProduct_image()).into(productImage);
+
                 }
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onCancelled(DatabaseError databaseError) {
 
             }
         });
     }
 }
+

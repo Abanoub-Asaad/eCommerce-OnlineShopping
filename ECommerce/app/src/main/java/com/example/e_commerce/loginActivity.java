@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.InputType;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -28,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import io.paperdb.Paper;
 
-public class loginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private Button loginButton;
     private EditText phoneNumberEditText, passwordEditText;
@@ -51,7 +50,7 @@ public class loginActivity extends AppCompatActivity {
         adminLink = (TextView) findViewById(R.id.admin_panel_link);
         notAdminLink = (TextView) findViewById(R.id.not_admin_panel_link);
         eye_password_login = (ImageView) findViewById(R.id.eye_login);
-        loadingBar = new ProgressDialog(loginActivity.this);
+        loadingBar = new ProgressDialog(LoginActivity.this);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,7 +112,7 @@ public class loginActivity extends AppCompatActivity {
         String password = passwordEditText.getText().toString();
 
         if (TextUtils.isEmpty(phone))
-            Toast.makeText(loginActivity.this, "Please, write your phone number", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, "Please, write your phone number", Toast.LENGTH_SHORT).show();
         else if (TextUtils.isEmpty(password))
             Toast.makeText(this, "Please write your password", Toast.LENGTH_SHORT).show();
         else if (password.length() < 6)
@@ -151,28 +150,28 @@ public class loginActivity extends AppCompatActivity {
                         if (parentDbName.equals("Users")) {
 
                             loadingBar.dismiss();
-                            Toast.makeText(loginActivity.this, "Logged in Successfully...", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Logged in Successfully...", Toast.LENGTH_SHORT).show();
 
-                            Intent intent = new Intent(loginActivity.this, HomeActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                             Prevalent.currentOnlineUser = usersData;
                             System.out.println(Prevalent.currentOnlineUser.getName());
 
                             startActivity(intent);
                         } else if (parentDbName.equals("Admins")) {
                             loadingBar.dismiss();
-                            Toast.makeText(loginActivity.this, "Welcome Admin, you are logged in Successfully...", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Welcome Admin, you are logged in Successfully...", Toast.LENGTH_SHORT).show();
 
-                            Intent intent = new Intent(loginActivity.this, AdminCategoryActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, AdminCategoryActivity.class);
                             startActivity(intent);
                         }
                     } else {
                         loadingBar.dismiss();
-                        Toast.makeText(loginActivity.this, "Password is incorrect", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Password is incorrect", Toast.LENGTH_SHORT).show();
                     }
 
                 } else {
                     loadingBar.dismiss();
-                    Toast.makeText(loginActivity.this, "Account with this " + phone + " number doesn't exist", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Account with this " + phone + " number doesn't exist", Toast.LENGTH_SHORT).show();
                 }
             }
 
