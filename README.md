@@ -7,3 +7,4 @@ An Android Application like Amazon.
 ### Circle Image View: [CircleImageView](https://github.com/hdodenhof/CircleImageView)
 ### Elegant Number Button: [Android Arsenal](https://android-arsenal.com/details/1/4136)
 ### Crop the image: [Android Image Cropper](https://github.com/ArthurHub/Android-Image-Cropper)
+### On-Boarding Slider Screen: [Splash](https://github.com/msayan/tutorial-view)

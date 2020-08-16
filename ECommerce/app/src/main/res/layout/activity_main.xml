@@ -58,7 +58,7 @@
       android:layout_marginTop="2dp"
       android:text="Find, Discover, Choose and Buy anything Online"
       android:textAlignment="center"
-      android:textColor="@color/colorPrimary"
+      android:textColor="@color/colorAbnb"
       android:layout_below="@+id/app_logo"
       android:textSize="22sp"
       android:textStyle="bold|italic" />
