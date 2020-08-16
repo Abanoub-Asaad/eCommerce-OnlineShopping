@@ -10,14 +10,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="10dp"
-        android:background="@color/colorPrimaryDark">
+        android:background="@color/colorAbnb">
 
         <TextView
             android:id="@+id/cart_product_name"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:text="Product Name"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="15dp"
             android:layout_marginLeft="2dp"
             android:textStyle="bold"
@@ -30,7 +30,7 @@
             android:layout_alignParentEnd="true"
             android:text="Product Quantity"
             android:textAlignment="viewEnd"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="15dp"
             android:layout_marginRight="2dp"
             android:textStyle="bold"
@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Product Price"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="18dp"
             android:textStyle="bold"
             android:layout_below="@+id/cart_product_quantity"

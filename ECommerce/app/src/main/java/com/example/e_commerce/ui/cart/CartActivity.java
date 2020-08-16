@@ -1,10 +1,12 @@
 package com.example.e_commerce.ui.cart;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -40,8 +42,6 @@ public class CartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
-        Toast.makeText(CartActivity.this, "Cart", Toast.LENGTH_SHORT).show();
-
         cartListRecyclerView = (RecyclerView) findViewById(R.id.cart_list_recyclerView);
         cartListRecyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
@@ -65,7 +65,7 @@ public class CartActivity extends AppCompatActivity {
         FirebaseRecyclerAdapter<CartList, CartViewHolder> adapter =
                 new FirebaseRecyclerAdapter<CartList, CartViewHolder>(options) {
                     @Override
-                    protected void onBindViewHolder(@NonNull CartViewHolder cartViewHolder, int position, @NonNull CartList model) {
+                    protected void onBindViewHolder(@NonNull CartViewHolder cartViewHolder, int position, @NonNull final CartList model) {
 
                         cartViewHolder.txtProductName.setText(model.getProduct_name());
                         cartViewHolder.txtProductPrice.setText("Price/One = "+model.getProduct_price());
@@ -75,6 +75,32 @@ public class CartActivity extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
 
+                                String  options[] = new String []
+                                        {
+                                                "Edit",
+                                                "Remove"
+                                        };
+                                AlertDialog.Builder builder = new AlertDialog.Builder(CartActivity.this);
+                                builder.setTitle("Cart Options:");
+
+                                builder.setItems(options, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int i) {
+                                        if(i==0){
+                                            Intent intent = new Intent(CartActivity.this, ProductDetailsActivity.class);
+                                            intent.putExtra("product_id", model.getProduct_id());
+
+                                            startActivity(intent);
+                                        }else if(i==1){
+                                            cartListRef.child("User View")
+                                                    .child(Prevalent.currentOnlineUser.getPhone()).child("Products")
+                                                    .child(model.getProduct_id()).removeValue();
+
+                                            Toast.makeText(CartActivity.this, "Removed Successfully :)", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                                builder.show();
                             }
                         });
                     }

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ import com.squareup.picasso.Picasso;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
@@ -48,6 +50,8 @@ import io.paperdb.Paper;
 
 public class HomeActivity extends AppCompatActivity {
 
+    private NavController navController;
+    private DrawerLayout drawer;
     private CircleImageView profileImageView;
     private DatabaseReference ProductRef;
     private RecyclerView recyclerView;
@@ -73,10 +77,12 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        Paper.init(HomeActivity.this);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+
+        Paper.init(HomeActivity.this);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -93,16 +99,16 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
+
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home_abnb, R.id.nav_slideshow, R.id.nav_settings, R.id.nav_logout, R.id.nav_cart)
                 .setDrawerLayout(drawer)
                 .build();
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
@@ -111,30 +117,20 @@ public class HomeActivity extends AppCompatActivity {
         TextView navUsername = (TextView) headerView.findViewById(R.id.user_profile_name);
         navUsername.setText(Prevalent.currentOnlineUser.getName());
 
-        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
-            @Override
-            public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-                int id = destination.getId();
+        //Set image at navigation drawer
+        profileImageView = (CircleImageView)headerView.findViewById(R.id.profile_image);
+        Picasso.get().load(Prevalent.currentOnlineUser.getImage()).into(profileImageView);
 
-                if (id == R.id.nav_logout) {
-                    Toast.makeText(HomeActivity.this, "Logout", Toast.LENGTH_SHORT).show();
-                    Paper.book().destroy();
+//        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+//            @Override
+//            public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
 //
-//                    Intent intent = new Intent(HomeActivity.this, MainActivity.class);
-//                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK );
+//                int id = destination.getId();
 //
-//                    startActivity(intent);
-//                    finish();
-                } else if (id == R.id.nav_settings) {
+//                System.out.println(id);
+//            }
+//        });
 
-                }
-
-            }
-        });
-
-
-//        profileImageView = (CircleImageView) findViewById(R.id.profile_image);
-//        Picasso.get().load(Prevalent.currentOnlineUser.getImage()).placeholder(R.drawable.profile).into(profileImageView);
 
         ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
         ProductRef.keepSynced(true);
@@ -207,12 +203,29 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * when the user clicks back twice, he'll shut off the app
+     */
+    boolean doubleBackToExitPressedOnce = false;
+
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        finish();
-        System.exit(0);
-    }
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
 
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+                System.exit(0);
+            }
+        }, 2000);
+    }
 
 }

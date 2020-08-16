@@ -129,8 +129,8 @@ public class SettingsActivity extends AppCompatActivity {
                         String address = snapshot.child("address").getValue().toString();
 
                         Picasso.get().load(image).into(profileImageView);
-                        userNameEditText.setText(name);
-                        userPassEditText.setText(pass);
+                        userNameEditText.setText(pass);
+                        userPassEditText.setText(name);
                         userAddressEditText.setText(address);
                     }
                 }

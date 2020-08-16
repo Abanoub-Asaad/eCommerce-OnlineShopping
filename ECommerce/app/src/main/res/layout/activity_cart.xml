@@ -39,11 +39,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/buttons"
+        android:background="@color/colorPrimary"
         android:text="Next"
         android:textColor="@android:color/white"
         android:textSize="20dp"
-        android:layout_margin="5dp"
         />
 
 </RelativeLayout>
