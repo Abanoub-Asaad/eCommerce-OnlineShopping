@@ -13,6 +13,10 @@
             android:icon="@drawable/nav_cart"
             android:title="Cart" />
         <item
+            android:id="@+id/nav_search"
+            android:icon="@drawable/search_product"
+            android:title="Search Product" />
+        <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/orders"
             android:title="Orders" />

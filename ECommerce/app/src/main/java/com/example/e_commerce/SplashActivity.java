@@ -58,4 +58,6 @@ public class SplashActivity extends TutorialActivity {
         Intent intent = new Intent(SplashActivity.this, MainActivity.class);
         startActivity(intent);
     }
+
+
 }

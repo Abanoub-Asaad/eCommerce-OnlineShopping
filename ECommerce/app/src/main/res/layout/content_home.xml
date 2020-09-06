@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_home">
-
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -15,10 +13,11 @@
         android:id="@+id/recycler_menu"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical"
         android:layout_marginTop="3dp"
+        android:scrollbars="vertical"
 
         ></androidx.recyclerview.widget.RecyclerView>
+
     <fragment
         android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -31,5 +30,4 @@
         app:navGraph="@navigation/mobile_navigation" />
 
 
-
-</RelativeLayout>
+</androidx.cardview.widget.CardView>

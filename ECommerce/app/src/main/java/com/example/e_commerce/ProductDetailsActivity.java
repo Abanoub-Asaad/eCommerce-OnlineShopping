@@ -70,7 +70,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
                     Products products = dataSnapshot.getValue(Products.class);
 
                     productName.setText(products.getProduct_name());
-                    productPrice.setText(products.getProduct_price());
+                    productPrice.setText(products.getProduct_price()+" $");
                     productDescription.setText(products.getProduct_description());
                     Picasso.get().load(products.getProduct_image()).into(productImage);
                     //Glide.with(ProductDetailsActivity.this).load(products.getProduct_image()).into(productImage);

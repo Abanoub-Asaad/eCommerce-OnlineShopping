@@ -92,14 +92,14 @@ public class LoginActivity extends AppCompatActivity {
                     passwordIsHidden = false;
                     passwordEditText.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
 
-                    ImageView image_view  = (ImageView) findViewById(R.id.eye_login);
+                    ImageView image_view = (ImageView) findViewById(R.id.eye_login);
                     image_view.setImageResource(R.drawable.invisible_eye);
                 } else {
                     // hide password
                     passwordIsHidden = true;
                     passwordEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
 
-                    ImageView image_view  = (ImageView) findViewById(R.id.eye_login);
+                    ImageView image_view = (ImageView) findViewById(R.id.eye_login);
                     image_view.setImageResource(R.drawable.eye);
                 }
                 // set cursor to the end of the password text
@@ -135,7 +135,7 @@ public class LoginActivity extends AppCompatActivity {
         if (chkBoxRememberMe.isChecked()) {
             Paper.book().write(Prevalent.userPhoneKey, phone);
             Paper.book().write(Prevalent.userPasswordKey, password);
-        }else{
+        } else {
             Paper.book().destroy();
         }
 
@@ -146,9 +146,13 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                 if (snapshot.child(parentDbName).child(phone).exists()) {
+
                     Users usersData = snapshot.child(parentDbName).child(phone).getValue(Users.class);
+
                     if (usersData.getPassword().equals(password)) {
+
                         if (parentDbName.equals("Users")) {
 
                             loadingBar.dismiss();

@@ -5,5 +5,6 @@
     <color name="colorAccent">#0f4c75</color>
     <color name="colorAbnb">#fdcb9e</color>
     <color name="colorAbnb2">#00b7c2</color>
-
+    <color name="colorAbnb3">#B3808080</color>
+    <color name="colorAbnb4">#33808080</color>
 </resources>

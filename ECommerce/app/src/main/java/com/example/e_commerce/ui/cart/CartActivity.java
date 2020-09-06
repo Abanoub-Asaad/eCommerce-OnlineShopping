@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.e_commerce.ConfirmFinalOrderActivity;
 import com.example.e_commerce.HomeActivity;
 import com.example.e_commerce.Model.CartList;
 import com.example.e_commerce.Prevalent.Prevalent;
@@ -36,6 +37,7 @@ public class CartActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private Button nextBtn;
     private TextView txtTotalPrice;
+    private int totalPrice=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,15 @@ public class CartActivity extends AppCompatActivity {
 
         nextBtn = (Button) findViewById(R.id.next_btn);
         txtTotalPrice = (TextView) findViewById(R.id.total_price);
+
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CartActivity.this, ConfirmFinalOrderActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     @Override
@@ -70,6 +81,8 @@ public class CartActivity extends AppCompatActivity {
                         cartViewHolder.txtProductName.setText(model.getProduct_name());
                         cartViewHolder.txtProductPrice.setText("Price/One = "+model.getProduct_price());
                         cartViewHolder.txtProductQuantity.setText("Quantity : "+model.getQuantity());
+
+
 
                         cartViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override

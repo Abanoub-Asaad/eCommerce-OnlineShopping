@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConfirmFinalOrderActivity">
+
+    <TextView
+        android:id="@+id/shippment_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please write your shippment details"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:layout_margin="25dp"></TextView>
+
+    <EditText
+        android:id="@+id/shippment_userName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/shippment_txt"
+        android:hint="Your Name"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textStyle="bold"></EditText>
+
+    <EditText
+        android:id="@+id/shippment_userPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/shippment_userName"
+        android:hint="Phone Number"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:inputType="number"
+        android:textStyle="bold"></EditText>
+
+    <EditText
+        android:id="@+id/shippment_userHomeAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/shippment_userPhoneNumber"
+        android:hint="Home Address"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textStyle="bold"></EditText>
+
+    <EditText
+        android:id="@+id/shippment_userCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/shippment_userHomeAddress"
+        android:hint="City"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textStyle="bold"></EditText>
+
+    <EditText
+        android:id="@+id/shippment_userStreet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/shippment_userCity"
+        android:hint="Street"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textStyle="bold"></EditText>
+
+    <Button
+        android:id="@+id/confirm_final_order_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:text="Confirm"
+        android:background="@drawable/abnb_design"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        />
+</RelativeLayout>

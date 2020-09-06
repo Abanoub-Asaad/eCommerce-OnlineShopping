@@ -20,6 +20,7 @@
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="Product Name"
+        android:background="@color/colorAbnb4"
         android:textColor="@android:color/black"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -46,6 +47,7 @@
         android:layout_marginTop="4dp"
         android:gravity="center"
         android:text="Product Price"
+        android:background="@color/colorAbnb4"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold" />

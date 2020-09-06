@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.search.SearchProductsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/r2_search"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <EditText
+            android:id="@+id/search_product_name"
+            android:layout_width="260dp"
+            android:layout_height="47dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="112dp"
+            android:background="@android:color/white"
+            android:hint="Product Name"
+            android:padding="10dp"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_search_product"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.384"></EditText>
+
+        <Button
+            android:id="@+id/btn_search_product"
+            android:layout_width="wrap_content"
+            android:layout_height="47dp"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="4dp"
+            android:layout_toRightOf="@+id/search_product_name"
+            android:background="@color/colorPrimaryDark"
+            android:padding="9dp"
+            android:text="Search"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.333"></Button>
+
+        ></androidx.constraintlayout.widget.ConstraintLayout>
+    
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/search_list"
+        android:layout_below="@+id/r2_search"
+        ></androidx.recyclerview.widget.RecyclerView>
+
+</RelativeLayout>

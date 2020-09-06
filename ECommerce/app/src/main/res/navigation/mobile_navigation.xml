@@ -54,6 +54,11 @@
         android:label="Cart"
         tools:layout="@layout/activity_cart" />
     <activity
+        android:id="@+id/nav_search"
+        android:name="com.example.e_commerce.ui.search.SearchProductsActivity"
+        android:label="Search"
+        tools:layout="@layout/activity_search_products" />
+    <activity
         android:id="@+id/nav_home_abnb"
         android:name="com.example.e_commerce.HomeActivity"
         android:label="Home"

@@ -38,6 +38,7 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -50,6 +51,7 @@ import io.paperdb.Paper;
 
 public class HomeActivity extends AppCompatActivity {
 
+    private final int numOfColums = 2;
     private NavController navController;
     private DrawerLayout drawer;
     private CircleImageView profileImageView;
@@ -144,7 +146,9 @@ public class HomeActivity extends AppCompatActivity {
          * Horizontal Scrolling
          */
         //layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        recyclerView.setLayoutManager(layoutManager);
+       // recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setLayoutManager(new GridLayoutManager(this, numOfColums));
+
         arrayList = new ArrayList<Products>();
 
         options =
@@ -216,7 +220,7 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT).show();
 
         new Handler().postDelayed(new Runnable() {
 
