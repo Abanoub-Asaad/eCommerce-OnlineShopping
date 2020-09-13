@@ -31,11 +31,11 @@
 
 
 
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.e_commerce.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+<!--    <fragment-->
+<!--        android:id="@+id/nav_slideshow"-->
+<!--        android:name="com.example.e_commerce.ui.slideshow.SlideshowFragment"-->
+<!--        android:label="@string/menu_slideshow"-->
+<!--        tools:layout="@layout/fragment_slideshow" />-->
 
     <activity
         android:id="@+id/nav_logout"

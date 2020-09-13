@@ -4,6 +4,8 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+        android:id="@+id/menu_top"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home_abnb"
             android:icon="@drawable/home_icon"
@@ -16,10 +18,15 @@
             android:id="@+id/nav_search"
             android:icon="@drawable/search_product"
             android:title="Search Product" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/orders"
-            android:title="Orders" />
+    </group>
+
+<!--        <item-->
+<!--            android:id="@+id/nav_slideshow"-->
+<!--            android:icon="@drawable/orders"-->
+<!--            android:title="Orders" />-->
+    <group
+        android:id="@+id/menu_bottom"
+        android:checkableBehavior="none">
         <item
             android:id="@+id/nav_categories"
             android:icon="@drawable/category"

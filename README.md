@@ -1,5 +1,5 @@
 # E-Commerce
-An Android Application like Amazon.
+An android application like Amazon.
 
 
 ### CheckBox design: [Matrial](https://github.com/rey5137/material)

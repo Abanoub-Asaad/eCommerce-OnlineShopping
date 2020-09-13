@@ -106,7 +106,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home_abnb, R.id.nav_slideshow, R.id.nav_settings, R.id.nav_logout, R.id.nav_cart)
+                R.id.nav_home_abnb,  R.id.nav_settings, R.id.nav_logout, R.id.nav_cart)
                 .setDrawerLayout(drawer)
                 .build();
 
