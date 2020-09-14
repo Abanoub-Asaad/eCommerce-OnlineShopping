@@ -27,11 +27,24 @@
 
             />
 
+        <TextView
+            android:id="@+id/product_name_maintain_txtView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/product_image_maintain"
+            android:text="Product Name"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginLeft="8dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_alignParentStart="true"
+            />
+
         <EditText
             android:id="@+id/product_name_maintain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/product_image_maintain"
+            android:layout_below="@+id/product_name_maintain_txtView"
             android:hint="Product Name"
             android:background="@drawable/input_design"
             android:padding="12dp"
@@ -40,11 +53,24 @@
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18dp" />
 
+        <TextView
+            android:id="@+id/product_price_maintain_txtView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/product_name_maintain"
+            android:text="Product Price"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginLeft="8dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_alignParentStart="true"
+            />
+
         <EditText
             android:id="@+id/product_price_maintain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/product_name_maintain"
+            android:layout_below="@+id/product_price_maintain_txtView"
             android:hint="Product Price"
             android:background="@drawable/input_design"
             android:padding="12dp"
@@ -53,11 +79,24 @@
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18dp" />
 
+        <TextView
+            android:id="@+id/product_description_maintain_txtView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/product_price_maintain"
+            android:text="Product Description"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginLeft="8dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_alignParentStart="true"
+            />
+
         <EditText
             android:id="@+id/product_description_maintain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/product_price_maintain"
+            android:layout_below="@+id/product_description_maintain_txtView"
             android:layout_marginTop=".1dp"
             android:hint="Product Description"
             android:background="@drawable/input_design"
