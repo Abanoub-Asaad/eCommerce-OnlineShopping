@@ -1,4 +1,4 @@
-package com.example.e_commerce;
+package com.example.e_commerce.Admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import com.example.e_commerce.HomeActivity;
+import com.example.e_commerce.LoginActivity;
+import com.example.e_commerce.R;
 
 public class AdminCategoryActivity extends AppCompatActivity {
 

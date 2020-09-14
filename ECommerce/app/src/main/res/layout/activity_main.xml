@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/welcome"
+    android:background="@color/colorPrimaryDark"
     tools:context=".MainActivity">
 
   <Button
@@ -43,8 +43,8 @@
   <ImageView
 
       android:id="@+id/app_logo"
-      android:layout_width="400dp"
-      android:layout_height="150dp"
+      android:layout_width="450dp"
+      android:layout_height="200dp"
       android:layout_centerHorizontal="true"
       android:layout_marginTop="60dp"
       android:src="@drawable/app_logo_2" />
@@ -52,14 +52,14 @@
   <TextView
 
       android:id="@+id/app_slogan"
-      android:layout_width="260dp"
-      android:layout_height="wrap_content"
+      android:layout_width="305dp"
+      android:layout_height="95dp"
+      android:layout_below="@+id/app_logo"
       android:layout_centerHorizontal="true"
-      android:layout_marginTop="2dp"
+      android:layout_marginTop="30dp"
       android:text="Find, Discover, Choose and Buy anything Online"
       android:textAlignment="center"
       android:textColor="@color/colorAbnb"
-      android:layout_below="@+id/app_logo"
-      android:textSize="22sp"
+      android:textSize="28sp"
       android:textStyle="bold|italic" />
 </RelativeLayout>

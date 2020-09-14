@@ -41,7 +41,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class SettingsActivity extends AppCompatActivity {
 
     private CircleImageView profileImageView;
-    private EditText userPassEditText, userNameEditText, userAddressEditText;
+    private EditText userPhoneEditText, userNameEditText, userAddressEditText;
     private TextView profileChangeTextBtn, closeTextBtn, saveTextBtn;
 
     private StorageTask uploadTask;
@@ -54,12 +54,11 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        Toast.makeText(SettingsActivity.this, "Settings", Toast.LENGTH_SHORT).show();
 
         storageProfilePictureRef = FirebaseStorage.getInstance().getReference().child("Profile pictures");
 
         profileImageView = (CircleImageView) findViewById(R.id.settings_profile_image);
-        userPassEditText = (EditText) findViewById(R.id.settings_password);
+        userPhoneEditText = (EditText) findViewById(R.id.settings_phoneNumber);
         userNameEditText = (EditText) findViewById(R.id.settings_full_name);
         userAddressEditText = (EditText) findViewById(R.id.settings_address);
 
@@ -67,7 +66,7 @@ public class SettingsActivity extends AppCompatActivity {
         closeTextBtn = (TextView) findViewById(R.id.close_settings_btn);
         saveTextBtn = (TextView) findViewById(R.id.update_account_settings_btn);
 
-        userInfoDisplay(profileImageView, userNameEditText, userPassEditText, userAddressEditText);
+        userInfoDisplay(profileImageView, userNameEditText, userPhoneEditText, userAddressEditText);
 
         closeTextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,7 +113,7 @@ public class SettingsActivity extends AppCompatActivity {
         }
     }
 
-    private void userInfoDisplay(final CircleImageView profileImageView, final EditText userPassEditText, final EditText userNameEditText, final EditText userAddressEditText){
+    private void userInfoDisplay(final CircleImageView profileImageView, final EditText userPhoneEditText, final EditText userNameEditText, final EditText userAddressEditText){
 
         DatabaseReference UserRef = FirebaseDatabase.getInstance().getReference().child("Users").child(Prevalent.currentOnlineUser.getPhone());
 
@@ -124,13 +123,13 @@ public class SettingsActivity extends AppCompatActivity {
                 if(snapshot.exists()){
                     if(snapshot.child("image").exists()){
                         String image = snapshot.child("image").getValue().toString();
-                        String name = snapshot.child("name").getValue().toString();
-                        String pass = snapshot.child("password").getValue().toString();
+                        String name = snapshot.child("phone").getValue().toString();
+                        String phone = snapshot.child("name").getValue().toString();
                         String address = snapshot.child("address").getValue().toString();
 
                         Picasso.get().load(image).into(profileImageView);
-                        userNameEditText.setText(pass);
-                        userPassEditText.setText(name);
+                        userNameEditText.setText(name);
+                        userPhoneEditText.setText(phone);
                         userAddressEditText.setText(address);
                     }
                 }
@@ -184,7 +183,7 @@ public class SettingsActivity extends AppCompatActivity {
                                 HashMap<String, Object> userMap = new HashMap<>();
                                 userMap. put("name", userNameEditText.getText().toString());
                                 userMap. put("address", userAddressEditText.getText().toString());
-                                userMap. put("password", userPassEditText.getText().toString());
+                                userMap. put("phone", userPhoneEditText.getText().toString());
                                 userMap. put("image", myUrl);
 
                                 ref.child(Prevalent.currentOnlineUser.getPhone()).updateChildren(userMap);
@@ -222,9 +221,9 @@ public class SettingsActivity extends AppCompatActivity {
         {
             Toast.makeText(this, "Address is mandatory.", Toast.LENGTH_SHORT).show();
         }
-        else if (TextUtils.isEmpty(userPassEditText.getText().toString()))
+        else if (TextUtils.isEmpty(userPhoneEditText.getText().toString()))
         {
-            Toast.makeText(this, "Password is mandatory.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Phone Number is mandatory.", Toast.LENGTH_SHORT).show();
         }
         else if(checker.equals("clicked"))
         {
@@ -242,8 +241,8 @@ public class SettingsActivity extends AppCompatActivity {
             userMap. put("name", userNameEditText.getText().toString());
         if(!TextUtils.isEmpty(userAddressEditText.getText().toString()))
             userMap. put("address", userAddressEditText.getText().toString());
-        if(!TextUtils.isEmpty(userPassEditText.getText().toString()))
-            userMap. put("password", userPassEditText.getText().toString());
+        if(!TextUtils.isEmpty(userPhoneEditText.getText().toString()))
+            userMap. put("phone", userPhoneEditText.getText().toString());
 
         ref.child(Prevalent.currentOnlineUser.getPhone()).updateChildren(userMap);
 

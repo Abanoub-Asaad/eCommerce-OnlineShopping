@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.e_commerce.Admin.AdminCategoryActivity;
 import com.example.e_commerce.Model.Users;
 import com.example.e_commerce.Prevalent.Prevalent;
 import com.google.firebase.database.DataSnapshot;
@@ -34,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressDialog loadingBar;
     private String parentDbName = "Users";
     private CheckBox chkBoxRememberMe;
-    private TextView adminLink, notAdminLink;
+    private TextView adminLink, notAdminLink, forgetPassLink;
     private ImageView eye_password_login;
     private boolean passwordIsHidden = true;
 
@@ -51,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
         notAdminLink = (TextView) findViewById(R.id.not_admin_panel_link);
         eye_password_login = (ImageView) findViewById(R.id.eye_login);
         loadingBar = new ProgressDialog(LoginActivity.this);
+        forgetPassLink = findViewById(R.id.forget_password);
 
         Paper.book().destroy();
 
@@ -193,8 +195,8 @@ public class LoginActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
 
-        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+//        startActivity(intent);
         finish();
     }
 }

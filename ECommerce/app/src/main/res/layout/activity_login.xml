@@ -18,6 +18,7 @@
         android:layout_marginStart="78dp"
         android:layout_marginTop="42dp"
         android:layout_marginEnd="73dp"
+        android:fontFamily="@font/abril_fatface"
         android:text="Login"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryDark"
@@ -48,6 +49,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:background="@drawable/input_design"
+        android:layout_marginTop="50dp"
         android:hint="Phone Number"
         android:inputType="number"
         android:padding="20dp"
@@ -90,7 +92,8 @@
         android:layout_width="400dp"
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
+        android:layout_below="@+id/app_slogan_login"
+        android:layout_marginTop="20dp"
         android:src="@drawable/app_logo_2"></ImageView>
 
     <LinearLayout
@@ -112,7 +115,16 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/forget_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
+            android:layout_marginLeft="70dp"
+            android:text="Forget Password ?"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <TextView

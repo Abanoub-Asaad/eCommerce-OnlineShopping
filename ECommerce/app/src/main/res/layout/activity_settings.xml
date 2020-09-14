@@ -105,11 +105,11 @@
         />
 
     <TextView
-        android:id="@+id/settings_password_txtView"
+        android:id="@+id/settings_phone_txtView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/settings_full_name"
-        android:text="Password"
+        android:text="Phone Number"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold"
         android:textSize="20sp"
@@ -117,11 +117,11 @@
         />
 
     <EditText
-        android:id="@+id/settings_password"
+        android:id="@+id/settings_phoneNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/settings_password_txtView"
-        android:hint="Password"
+        android:layout_below="@+id/settings_phone_txtView"
+        android:hint="Phone Number"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:padding="10dp"
@@ -130,7 +130,7 @@
         android:id="@+id/settings_address_txtView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/settings_password"
+        android:layout_below="@+id/settings_phoneNumber"
         android:text="Address"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold"

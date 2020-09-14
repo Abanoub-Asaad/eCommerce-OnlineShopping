@@ -1,4 +1,4 @@
-package com.example.e_commerce;
+package com.example.e_commerce.Admin;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,8 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.e_commerce.Prevalent.Prevalent;
-import com.example.e_commerce.ui.cart.CartActivity;
+import com.example.e_commerce.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
