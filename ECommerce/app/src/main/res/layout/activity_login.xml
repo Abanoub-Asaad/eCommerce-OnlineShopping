@@ -8,7 +8,6 @@
     tools:context=".LoginActivity">
 
     <TextView
-
         android:id="@+id/app_slogan_login"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
@@ -26,7 +25,6 @@
         android:textStyle="bold|italic" />
 
     <Button
-
         android:id="@+id/login_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

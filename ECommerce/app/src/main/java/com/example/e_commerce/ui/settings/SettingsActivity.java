@@ -10,14 +10,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.e_commerce.HomeActivity;
 import com.example.e_commerce.Prevalent.Prevalent;
 import com.example.e_commerce.R;
+import com.example.e_commerce.SetSecurityQuestionsActivity;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -32,14 +33,13 @@ import com.google.firebase.storage.StorageTask;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 
-import org.w3c.dom.Text;
-
 import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SettingsActivity extends AppCompatActivity {
 
+    private Button setSecurityQuestionsBtn;
     private CircleImageView profileImageView;
     private EditText userPhoneEditText, userNameEditText, userAddressEditText;
     private TextView profileChangeTextBtn, closeTextBtn, saveTextBtn;
@@ -49,6 +49,8 @@ public class SettingsActivity extends AppCompatActivity {
     private String myUrl = "";
     private StorageReference storageProfilePictureRef;
     private String checker = "";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +67,7 @@ public class SettingsActivity extends AppCompatActivity {
         profileChangeTextBtn = (TextView) findViewById(R.id.profile_image_change_btn);
         closeTextBtn = (TextView) findViewById(R.id.close_settings_btn);
         saveTextBtn = (TextView) findViewById(R.id.update_account_settings_btn);
+        setSecurityQuestionsBtn = findViewById(R.id.set_security_setting_btn);
 
         userInfoDisplay(profileImageView, userNameEditText, userPhoneEditText, userAddressEditText);
 
@@ -92,6 +95,15 @@ public class SettingsActivity extends AppCompatActivity {
 
                 CropImage.activity(imageUri).setAspectRatio(1, 1)
                         .start( SettingsActivity.this);
+            }
+        });
+
+        setSecurityQuestionsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SettingsActivity.this, SetSecurityQuestionsActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
