@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.search.SearchProductsActivity"></activity>
+        <activity android:name=".AdminMaintainProductsActivity"></activity>
+        <activity android:name=".ui.search.SearchProductsActivity" />
         <activity android:name=".ConfirmFinalOrderActivity" />
         <activity android:name=".ProductDetailsActivity" />
         <activity android:name=".ui.home2.Home2Activity" />
@@ -35,8 +36,8 @@
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
     </application>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 public class AdminCategoryActivity extends AppCompatActivity {
@@ -12,6 +13,8 @@ public class AdminCategoryActivity extends AppCompatActivity {
     private ImageView tShirts, sportsTShirts, femaleDresses, sweathers;
     private ImageView headPhonesHandFree, Laptops, watches, mobilePhones;
     private ImageView glasses, hatsCaps, walletsBagsPurses, shoes;
+    private Button adminLogoutBtn, adminMaintainProductBtn ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -152,6 +155,26 @@ public class AdminCategoryActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        
+
+        adminLogoutBtn = findViewById(R.id.admin_logout);
+        adminLogoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminCategoryActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        adminMaintainProductBtn = findViewById(R.id.admin_maintainProduct);
+        adminMaintainProductBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminCategoryActivity.this, HomeActivity.class);
+                intent.putExtra("Admin", "Admin");
+                startActivity(intent);
+            }
+        });
+
     }
 }

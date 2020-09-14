@@ -18,7 +18,7 @@
         android:layout_marginStart="78dp"
         android:layout_marginTop="42dp"
         android:layout_marginEnd="73dp"
-        android:text="Login Page"
+        android:text="Login"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="40sp"
@@ -103,7 +103,6 @@
 
         <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/remember_me_check_box"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

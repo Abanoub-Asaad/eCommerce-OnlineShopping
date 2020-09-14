@@ -61,6 +61,7 @@ public class HomeActivity extends AppCompatActivity {
     private ArrayList<Products> arrayList;
     private FirebaseRecyclerOptions<Products> options;
     private FirebaseRecyclerAdapter<Products, ProductViewHolder> adapter;
+    private String type="" ;
 
     @Override
     protected void onStart() {
@@ -82,6 +83,11 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+
+        if( bundle!= null )
+            type = getIntent().getExtras().get("Admin").toString();
 
         Paper.init(HomeActivity.this);
 
@@ -116,22 +122,18 @@ public class HomeActivity extends AppCompatActivity {
 
         //Show The Profile's username in navigation drawer
         View headerView = navigationView.getHeaderView(0);
-        TextView navUsername = (TextView) headerView.findViewById(R.id.user_profile_name);
-        navUsername.setText(Prevalent.currentOnlineUser.getName());
 
+        TextView navUsername = (TextView) headerView.findViewById(R.id.user_profile_name);
         //Set image at navigation drawer
         profileImageView = (CircleImageView)headerView.findViewById(R.id.profile_image);
-        Picasso.get().load(Prevalent.currentOnlineUser.getImage()).into(profileImageView);
 
-//        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
-//            @Override
-//            public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-//
-//                int id = destination.getId();
-//
-//                System.out.println(id);
-//            }
-//        });
+        if(!type.equals("Admin")){
+            navUsername.setText(Prevalent.currentOnlineUser.getName());
+            Picasso.get().load(Prevalent.currentOnlineUser.getImage()).into(profileImageView);
+        }else{
+            navUsername.setText("Admin");
+           // Picasso.get().load(R.drawable.admin).into(profileImageView);
+        }
 
 
         ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
@@ -171,9 +173,20 @@ public class HomeActivity extends AppCompatActivity {
                         productViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Intent intent = new Intent(HomeActivity.this, ProductDetailsActivity.class);
-                                intent.putExtra("product_id", products.getProduct_id());
-                                startActivity(intent);
+
+
+
+                             //   Toast.makeText(HomeActivity.this, type,Toast.LENGTH_SHORT ).show();
+                                if(type.equals("Admin")){
+                                    Intent intent = new Intent(HomeActivity.this, AdminMaintainProductsActivity.class);
+                                    intent.putExtra("product_id", products.getProduct_id());
+                                    startActivity(intent);
+                                }else {
+                                    Intent intent = new Intent(HomeActivity.this, ProductDetailsActivity.class);
+                                    intent.putExtra("product_id", products.getProduct_id());
+                                    startActivity(intent);
+                                }
+
                             }
                         });
                     }
