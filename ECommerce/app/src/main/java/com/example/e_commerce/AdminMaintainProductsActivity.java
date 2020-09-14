@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.e_commerce.Prevalent.Prevalent;
+import com.example.e_commerce.ui.cart.CartActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -24,7 +26,7 @@ import java.util.HashMap;
 
 public class AdminMaintainProductsActivity extends AppCompatActivity {
 
-    private Button applyChangesBtn;
+    private Button applyChangesBtn, deleteProductBtn;
     private EditText name, price, description;
     private ImageView imageView;
 
@@ -40,6 +42,8 @@ public class AdminMaintainProductsActivity extends AppCompatActivity {
         productRef = FirebaseDatabase.getInstance().getReference().child("Products").child(productId);
 
         applyChangesBtn = findViewById(R.id.apply_changes_btn);
+        deleteProductBtn = findViewById(R.id.delete_product_btn);
+
         name = findViewById(R.id.product_name_maintain);
         price = findViewById(R.id.product_price_maintain);
         description = findViewById(R.id.product_description_maintain);
@@ -53,6 +57,23 @@ public class AdminMaintainProductsActivity extends AppCompatActivity {
                 applyChanges();
             }
         });
+
+        deleteProductBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteThisProduct();
+            }
+        });
+    }
+
+    private void deleteThisProduct() {
+
+        productRef.removeValue();
+
+        Toast.makeText(AdminMaintainProductsActivity.this, "Removed Successfully :)", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(AdminMaintainProductsActivity.this, AdminCategoryActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void applyChanges(){
@@ -103,7 +124,7 @@ public class AdminMaintainProductsActivity extends AppCompatActivity {
                     String pDescription = snapshot.child("product_description").getValue().toString();
                     String pImage = snapshot.child("product_image").getValue().toString();
 
-                    name.setText(pName);
+                    name.setText(pName); name.setSelection(pName.length());
                     price.setText(pPrice);
                     description.setText(pDescription);
 

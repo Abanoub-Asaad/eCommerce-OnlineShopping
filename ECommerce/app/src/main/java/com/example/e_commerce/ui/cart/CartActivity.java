@@ -82,8 +82,6 @@ public class CartActivity extends AppCompatActivity {
                         cartViewHolder.txtProductPrice.setText("Price/One = "+model.getProduct_price());
                         cartViewHolder.txtProductQuantity.setText("Quantity : "+model.getQuantity());
 
-
-
                         cartViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
