@@ -103,7 +103,6 @@ public class SettingsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(SettingsActivity.this, SetSecurityQuestionsActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -141,7 +140,7 @@ public class SettingsActivity extends AppCompatActivity {
 
                         Picasso.get().load(image).into(profileImageView);
                         userNameEditText.setText(name);
-                        userPhoneEditText.setText(phone);
+                        userPhoneEditText.setText(phone); userPhoneEditText.setSelection(phone.length());
                         userAddressEditText.setText(address);
                     }
                 }

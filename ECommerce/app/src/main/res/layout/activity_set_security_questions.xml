@@ -91,11 +91,12 @@
         android:layout_marginLeft="10dp"
         android:gravity="center"
         android:text="Please set answers for the following security questions !"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
         android:textStyle="bold"
         android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rl_security" />
 
     <TextView
@@ -145,7 +146,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginTop="30dp"
         android:layout_marginRight="15dp"
-        android:background="@drawable/buttons"
+        android:background="@drawable/abnb_design"
         android:padding="10dp"
         android:text="Apply"
         android:textAllCaps="false"
