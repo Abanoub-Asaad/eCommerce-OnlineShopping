@@ -9,10 +9,12 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.e_commerce.Model.Users;
 import com.example.e_commerce.Prevalent.Prevalent;
+import com.example.e_commerce.Sellers.SellerRegisterationActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,6 +25,7 @@ import io.paperdb.Paper;
 
 public class MainActivity extends AppCompatActivity {
 
+    private TextView sellerLink;
     private Button joinNowButton, loginbutton;
     private ProgressDialog loadingBar;
     private String parentDbName = "Users";
@@ -34,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
         joinNowButton = (Button) findViewById(R.id.main_join_now_btn);
         loginbutton = (Button) findViewById(R.id.main_login_btn);
+        sellerLink = findViewById(R.id.seller_panel_link);
+
         loadingBar = new ProgressDialog(this);
 
         loginbutton.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +53,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        sellerLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SellerRegisterationActivity.class);
                 startActivity(intent);
             }
         });

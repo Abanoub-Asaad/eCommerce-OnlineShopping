@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressDialog loadingBar;
     private String parentDbName = "Users";
     private CheckBox chkBoxRememberMe;
-    private TextView adminLink, notAdminLink, forgetPassLink;
+    private TextView userLogin, adminLink, notAdminLink, forgetPassLink;
     private ImageView eye_password_login;
     private boolean passwordIsHidden = true;
 
@@ -45,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        userLogin = findViewById(R.id.txtView_login);
         loginButton = (Button) findViewById(R.id.login_btn);
         phoneNumberEditText = (EditText) findViewById(R.id.login_phone_number_input);
         passwordEditText = (EditText) findViewById(R.id.login_password_input);
@@ -67,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
         adminLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                userLogin.setText("Admin Login");
                 loginButton.setText("Login Admin");
                 adminLink.setVisibility(View.INVISIBLE);
                 notAdminLink.setVisibility(View.VISIBLE);
@@ -78,6 +80,7 @@ public class LoginActivity extends AppCompatActivity {
         notAdminLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                userLogin.setText("User Login");
                 loginButton.setText("Login");
                 adminLink.setVisibility(View.VISIBLE);
                 notAdminLink.setVisibility(View.INVISIBLE);

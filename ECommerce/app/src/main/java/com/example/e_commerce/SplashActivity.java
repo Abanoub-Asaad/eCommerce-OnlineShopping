@@ -18,30 +18,33 @@ public class SplashActivity extends TutorialActivity {
         //First Slide
         addFragment(new Step.Builder().setTitle("Wecome to Our Online Shopping")
                 .setContent("You will find all what you need")
-                .setBackgroundColor(Color.parseColor("#171734")) // int background color
+                .setBackgroundColor(Color.parseColor("#df861d")) // int background color
                 .setDrawable(R.drawable.b_1) // int top drawable
                 .setSummary("Developed by: Abanoub Asaad :)")
                 .build());
 
         //Second Slide
         addFragment(new Step.Builder().setTitle("Electronics")
-                .setContent("Laptops,Mobiles, Cameras, TVs, ...")
-                .setBackgroundColor(Color.parseColor("#171734")) // int background color
+                .setContent("Laptops, Mobiles, Cameras, TVs, Headphones, ...")//aa3d01
+                .setBackgroundColor(Color.parseColor("#e4820b")) // int background color
                 .setDrawable(R.drawable.b_2) // int top drawable
+                .setSummary("Continue to know more about us")
                 .build());
 
         //Third Slide
         addFragment(new Step.Builder().setTitle("Clothes")
-                .setContent("Blouses, Dresses, T-shirts, Sweaters, ...")
-                .setBackgroundColor(Color.parseColor("#171734")) // int background color
+                .setContent("Blouses, Dresses, T-shirts, Sweaters, Shoes, Bags, ...")
+                .setBackgroundColor(Color.parseColor("#f57c06")) // int background color
                 .setDrawable(R.drawable.b_3) // int top drawable
+                .setSummary("Buy any product from any place at any time very easily")
                 .build());
 
         //Fourth Slide
         addFragment(new Step.Builder().setTitle("Fashion Accessories")
-                .setContent("Watches, Sunglasses, Necklaces, Hats, ...")
-                .setBackgroundColor(Color.parseColor("#171734")) // int background color
+                .setContent("Watches, Sunglasses, Necklaces, Hats, Rings, Gloves, ...")
+                .setBackgroundColor(Color.parseColor("#f37305")) // int background color
                 .setDrawable(R.drawable.b_4) // int top drawable
+                .setSummary("Trendy products for the highest customer service")
                 .build());
     }
 

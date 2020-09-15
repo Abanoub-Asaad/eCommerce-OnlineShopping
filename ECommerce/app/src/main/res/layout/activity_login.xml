@@ -1,43 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context=".LoginActivity">
 
     <TextView
-        android:id="@+id/app_slogan_login"
-        android:layout_width="260dp"
+        android:id="@+id/txtView_login"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="78dp"
-        android:layout_marginTop="42dp"
-        android:layout_marginEnd="73dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:fontFamily="@font/abril_fatface"
-        android:text="Login"
+        android:gravity="center"
+        android:text="User Login"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="40sp"
-        android:textStyle="bold|italic" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_applogo" />
 
-    <Button
-        android:id="@+id/login_btn"
+    <ImageView
+        android:id="@+id/login_applogo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linear_layout_1"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="15dp"
-        android:background="@drawable/buttons"
-        android:padding="17dp"
-        android:text="Login"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/login_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
 
     <EditText
         android:id="@+id/login_phone_number_input"
@@ -45,16 +43,20 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/login_applogo"
         android:layout_marginLeft="15dp"
+        android:layout_marginTop="96dp"
         android:layout_marginRight="15dp"
         android:background="@drawable/input_design"
-        android:layout_marginTop="50dp"
         android:hint="Phone Number"
         android:inputType="number"
         android:padding="20dp"
         android:textColor="@color/colorPrimaryDark"
         android:textColorHint="@color/colorAbnb3"
         android:textSize="17sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.724"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtView_login" />
 
     <EditText
         android:id="@+id/login_password_input"
@@ -62,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/login_phone_number_input"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="15dp"
         android:background="@drawable/input_design"
         android:hint="Password"
@@ -71,58 +73,70 @@
         android:textColor="@color/colorPrimaryDark"
         android:textColorHint="@color/colorAbnb3"
         android:textSize="17sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_phone_number_input" />
 
     <ImageView
         android:id="@+id/eye_login"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_alignTop="@+id/login_password_input"
         android:layout_alignBottom="@+id/login_password_input"
         android:layout_alignParentEnd="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/eye"
+        app:layout_constraintBottom_toBottomOf="@+id/login_password_input"
+        app:layout_constraintEnd_toEndOf="@+id/login_password_input"
+        app:layout_constraintTop_toTopOf="@+id/login_password_input"></ImageView>
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/remember_me_check_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:gravity="center_vertical"
+        android:text="Remeber Me"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_password_input" />
+
+    <TextView
+        android:id="@+id/forget_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginBottom="9dp"
-        android:src="@drawable/eye"></ImageView>
+        android:gravity="center_vertical"
+        android:text="Forget Password ?"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.899"
+        app:layout_constraintStart_toEndOf="@+id/remember_me_check_box"
+        app:layout_constraintTop_toBottomOf="@+id/login_password_input" />
 
-    <ImageView
-        android:id="@+id/login_applogo"
-        android:layout_width="400dp"
-        android:layout_height="150dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/app_slogan_login"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/app_logo_2"></ImageView>
-
-    <LinearLayout
-        android:id="@+id/linear_layout_1"
+    <Button
+        android:id="@+id/login_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/login_password_input"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal">
-
-        <androidx.appcompat.widget.AppCompatCheckBox
-            android:id="@+id/remember_me_check_box"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:gravity="center_vertical"
-            android:text="Remeber Me"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/forget_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="70dp"
-            android:text="Forget Password ?"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+        android:layout_below="@+id/remember_me_check_box"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/buttons"
+        android:padding="17dp"
+        android:text="Login"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_password_input" />
 
     <TextView
 
@@ -131,12 +145,15 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/login_btn"
         android:layout_alignParentEnd="true"
-        android:layout_marginLeft="80dp"
-        android:layout_marginEnd="23dp"
+        android:layout_marginEnd="8dp"
         android:text="I'm an Admin?"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_btn"
+        app:layout_constraintVertical_bias="0.205" />
 
     <TextView
 
@@ -145,12 +162,15 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/login_btn"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="80dp"
-        android:layout_marginStart="25dp"
+        android:layout_marginStart="16dp"
         android:text="I'm not an Admin?"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_btn"
+        app:layout_constraintVertical_bias="0.205"
         android:visibility="invisible"/>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

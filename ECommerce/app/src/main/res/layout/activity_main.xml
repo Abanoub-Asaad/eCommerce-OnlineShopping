@@ -1,66 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
-
+    android:background="#CCCCCC"
     tools:context=".MainActivity">
 
-  <Button
-
-      android:id="@+id/main_login_btn"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_alignParentStart="true"
-      android:layout_alignParentBottom="true"
-      android:layout_marginLeft="15dp"
-      android:layout_marginRight="15dp"
-      android:layout_marginBottom="10dp"
-      android:background="@drawable/buttons"
-      android:padding="20dp"
-      android:text="Already have an Account? Login"
-      android:textAllCaps="false"
-      android:textColor="@android:color/white"
-      android:textSize="18sp" />
-
-  <Button
-
-      android:id="@+id/main_join_now_btn"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_above="@+id/main_login_btn"
-      android:layout_marginLeft="15dp"
-      android:layout_marginRight="15dp"
-      android:layout_marginBottom="10dp"
-      android:background="@drawable/input_design"
-      android:padding="20dp"
-      android:text="Join Now"
-      android:textAllCaps="false"
-      android:textColor="@android:color/white"
-      android:textSize="18sp" />
-
   <ImageView
-
       android:id="@+id/app_logo"
-      android:layout_width="450dp"
-      android:layout_height="200dp"
+      android:layout_width="302dp"
+      android:layout_height="203dp"
       android:layout_centerHorizontal="true"
-      android:layout_marginTop="60dp"
-      android:src="@drawable/app_logo_2" />
+      android:layout_marginTop="76dp"
+      android:src="@drawable/app_logo_2"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.495"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
 
   <TextView
-
       android:id="@+id/app_slogan"
       android:layout_width="305dp"
-      android:layout_height="95dp"
+      android:layout_height="wrap_content"
       android:layout_below="@+id/app_logo"
       android:layout_centerHorizontal="true"
-      android:layout_marginTop="30dp"
+      android:layout_marginTop="20dp"
+      android:fontFamily="@font/berkshire_swash"
       android:text="Find, Discover, Choose and Buy anything Online"
       android:textAlignment="center"
       android:textColor="@color/colorAbnb"
-      android:textSize="28sp"
-      android:textStyle="bold|italic" />
-</RelativeLayout>
+      android:textSize="22sp"
+      android:textStyle="bold|italic"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/app_logo" />
+
+  <Button
+      android:id="@+id/main_join_now_btn"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/app_slogan"
+      android:layout_marginLeft="10dp"
+      android:layout_marginTop="88dp"
+      android:layout_marginRight="10dp"
+      android:background="@drawable/input_design"
+      android:padding="20dp"
+      android:text="Join Now"
+      android:textStyle="bold"
+      android:textAllCaps="false"
+      android:textColor="@color/colorPrimaryDark"
+      android:textSize="18sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.473"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/app_slogan" />
+
+  <Button
+      android:id="@+id/main_login_btn"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/main_join_now_btn"
+      android:layout_centerHorizontal="true"
+      android:layout_marginLeft="10dp"
+      android:layout_marginTop="10dp"
+      android:layout_marginRight="10dp"
+      android:background="@drawable/buttons"
+      android:textStyle="bold"
+      android:padding="20dp"
+      android:text="Already have an Account? Login"
+      android:textAllCaps="false"
+      android:textColor="@color/colorPrimaryDark"
+      android:textSize="18sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.526"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/main_join_now_btn"
+      app:layout_constraintVertical_bias="0.0" />
+
+  <TextView
+      android:id="@+id/seller_panel_link"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/main_login_btn"
+      android:layout_alignParentEnd="true"
+      android:text="Want to be a seller?"
+      android:textColor="@color/colorPrimaryDark"
+      android:textSize="17sp"
+      android:textStyle="bold"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.93"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/main_login_btn"
+      app:layout_constraintVertical_bias="0.304" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
