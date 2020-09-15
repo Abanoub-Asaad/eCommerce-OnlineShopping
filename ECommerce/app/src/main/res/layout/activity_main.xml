@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CCCCCC"
     tools:context=".MainActivity">
 
   <ImageView
@@ -29,7 +28,7 @@
       android:fontFamily="@font/berkshire_swash"
       android:text="Find, Discover, Choose and Buy anything Online"
       android:textAlignment="center"
-      android:textColor="@color/colorAbnb"
+      android:textColor="@color/colorPrimary"
       android:textSize="22sp"
       android:textStyle="bold|italic"
       app:layout_constraintEnd_toEndOf="parent"

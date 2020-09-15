@@ -95,7 +95,8 @@ public class SellerRegisterationActivity extends AppCompatActivity {
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()){
+                            if(task.isSuccessful())
+                            {
                                 final DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
 
                                 String sid = auth.getCurrentUser().getUid();
@@ -115,12 +116,19 @@ public class SellerRegisterationActivity extends AppCompatActivity {
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 loadingBar.dismiss();
 
-                                                Intent intent = new Intent(SellerRegisterationActivity.this, SellerLoginActivity.class);
+                                                Intent intent = new Intent(SellerRegisterationActivity.this, SellerHomeActivity.class);
+                                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                                 startActivity(intent);
+                                                finish();
 
                                                 Toast.makeText(SellerRegisterationActivity.this, "You are registered successfully", Toast.LENGTH_SHORT).show();
                                             }
                                         });
+                            }
+                            else
+                            {
+                                loadingBar.dismiss();
+                                Toast.makeText(SellerRegisterationActivity.this, "Email or Password is incorrect", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
