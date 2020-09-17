@@ -18,9 +18,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.e_commerce.Admin.AdminCategoryActivity;
 import com.example.e_commerce.Model.Users;
 import com.example.e_commerce.Prevalent.Prevalent;
+import com.example.e_commerce.Sellers.SellerProductCategoryActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -69,9 +69,10 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 userLogin.setText("Admin Login");
-                loginButton.setText("Login Admin");
+                loginButton.setText("Login as Admin");
                 adminLink.setVisibility(View.INVISIBLE);
                 notAdminLink.setVisibility(View.VISIBLE);
+                forgetPassLink.setVisibility(View.INVISIBLE);
                 chkBoxRememberMe.setVisibility(View.INVISIBLE);
                 parentDbName = "Admins";
             }
@@ -84,6 +85,7 @@ public class LoginActivity extends AppCompatActivity {
                 loginButton.setText("Login");
                 adminLink.setVisibility(View.VISIBLE);
                 notAdminLink.setVisibility(View.INVISIBLE);
+                forgetPassLink.setVisibility(View.VISIBLE);
                 chkBoxRememberMe.setVisibility(View.VISIBLE);
                 parentDbName = "Users";
             }
@@ -180,7 +182,7 @@ public class LoginActivity extends AppCompatActivity {
                             loadingBar.dismiss();
                             Toast.makeText(LoginActivity.this, "Welcome Admin, you are logged in Successfully...", Toast.LENGTH_SHORT).show();
 
-                            Intent intent = new Intent(LoginActivity.this, AdminCategoryActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, SellerProductCategoryActivity.class);
                             startActivity(intent);
                         }
                     } else {

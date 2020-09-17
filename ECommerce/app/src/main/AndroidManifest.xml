@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Sellers.SellerHomeActivity"></activity>
+        <activity android:name=".Sellers.SellerAddNewProductActivity"></activity>
+        <activity android:name=".Sellers.SellerProductCategoryActivity" />
+        <activity android:name=".Sellers.SellerHomeActivity" />
         <activity android:name=".Sellers.SellerRegisterationActivity" />
         <activity android:name=".Sellers.SellerLoginActivity" />
         <activity android:name=".SetSecurityQuestionsActivity" />

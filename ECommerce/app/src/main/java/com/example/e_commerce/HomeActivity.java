@@ -85,17 +85,19 @@ public class HomeActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+//---------------------------------------------------------------------------------------
+//        getSupportActionBar().setHomeButtonEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setHomeAsUpIndicator(R.drawable.orders);
+//---------------------------------------------------------------------------------------
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                finish();
-                Intent intent = new Intent(HomeActivity.this, CartActivity.class);
-                startActivity(intent);
-                //  Toast.makeText(HomeActivity.this, "Hi Bebo", Toast.LENGTH_SHORT).show();
-
+            finish();
+            Intent intent = new Intent(HomeActivity.this, CartActivity.class);
+            startActivity(intent);
             }
         });
 
@@ -147,7 +149,7 @@ public class HomeActivity extends AppCompatActivity {
 
         options =
                 new FirebaseRecyclerOptions.Builder<Products>()
-                        .setQuery(ProductRef, Products.class)
+                        .setQuery(ProductRef.orderByChild("productState").equalTo("Approved"), Products.class)
                         .build();
 
         adapter =

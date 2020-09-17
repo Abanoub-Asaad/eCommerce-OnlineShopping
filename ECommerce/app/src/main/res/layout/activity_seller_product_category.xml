@@ -4,38 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admin.AdminCategoryActivity">
-
-    <Button
-        android:id="@+id/admin_logout"
-        style="bold"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="31dp"
-        android:background="@drawable/abnb_design"
-        android:text="Logout"
-        android:textColor="@android:color/white"
-        android:textSize="20sp" />
-
-    <Button
-        android:id="@+id/admin_maintainProduct"
-        style="bold"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_above="@+id/admin_logout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="5dp"
-        android:accessibilityLiveRegion="@android:integer/config_longAnimTime"
-        android:background="@drawable/abnb_design"
-        android:text="Maintain Product"
-        android:textColor="@android:color/white"
-        android:textSize="20sp" />
+    tools:context=".Sellers.SellerProductCategoryActivity">
 
     <LinearLayout
         android:id="@+id/linear3_category_layout"
@@ -82,7 +51,7 @@
         android:layout_below="@+id/slogan_category"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="100dp"
         android:layout_marginRight="10dp"
         android:gravity="center"
         android:orientation="horizontal">
@@ -165,4 +134,13 @@
         android:textSize="26sp"
         android:textStyle="bold" />
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_navigation"
+        app:itemBackground="@color/colorPrimary"
+        app:itemTextColor="@drawable/selector"
+        app:itemIconTint="@drawable/selector"
+        app:menu="@menu/menu_navigation"
+        android:layout_alignParentBottom="true"/>
 </RelativeLayout>

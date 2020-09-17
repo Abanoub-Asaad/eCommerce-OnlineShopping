@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class SellerHomeActivity extends AppCompatActivity {
 
-    BottomNavigationView bottomNavigationView;
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,18 +29,24 @@ public class SellerHomeActivity extends AppCompatActivity {
             public void onNavigationItemReselected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.add:
-                       // startActivity(new Intent(getApplicationContext(), ));
+                    {
+                        Intent intentCategory = new Intent(SellerHomeActivity.this, SellerProductCategoryActivity.class);
+                        startActivity(intentCategory);
+
                         overridePendingTransition(0, 0);
+                    }
                         break;
                     case R.id.logout:
+                    {
                         final FirebaseAuth auth= FirebaseAuth.getInstance();
                         auth.signOut();
 
-                        Intent intent = new Intent(SellerHomeActivity.this, MainActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(intent);
+                        Intent intentMain = new Intent(SellerHomeActivity.this, MainActivity.class);
+                        intentMain.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intentMain);
                         finish();
                         overridePendingTransition(0, 0);
+                    }
                         break;
                     case R.id.home:
                         break;

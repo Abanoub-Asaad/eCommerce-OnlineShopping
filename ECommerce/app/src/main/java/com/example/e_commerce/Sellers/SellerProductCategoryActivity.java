@@ -1,28 +1,64 @@
-package com.example.e_commerce.Admin;
+package com.example.e_commerce.Sellers;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
-import com.example.e_commerce.HomeActivity;
-import com.example.e_commerce.LoginActivity;
+import com.example.e_commerce.MainActivity;
 import com.example.e_commerce.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
-public class AdminCategoryActivity extends AppCompatActivity {
+public class SellerProductCategoryActivity extends AppCompatActivity {
 
+    private BottomNavigationView bottomNavigationView;
     private ImageView tShirts, sportsTShirts, femaleDresses, sweathers;
     private ImageView headPhonesHandFree, Laptops, watches, mobilePhones;
     private ImageView glasses, hatsCaps, walletsBagsPurses, shoes;
-    private Button adminLogoutBtn, adminMaintainProductBtn ;
+    //private Button adminLogoutBtn, adminMaintainProductBtn ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_category);
+        setContentView(R.layout.activity_seller_product_category);
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.add);
+
+        bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+            @Override
+            public void onNavigationItemReselected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.add:
+                         break;
+                    case R.id.logout:
+                    {
+                        final FirebaseAuth auth= FirebaseAuth.getInstance();
+                        auth.signOut();
+
+                        Intent intentMain = new Intent(SellerProductCategoryActivity.this, MainActivity.class);
+                        intentMain.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intentMain);
+                        finish();
+                        overridePendingTransition(0, 0);
+                    }
+                    break;
+                    case R.id.home:
+                    {
+                        Intent intentMain = new Intent(SellerProductCategoryActivity.this, SellerHomeActivity.class);
+                        startActivity(intentMain);
+                        finish();
+                        overridePendingTransition(0, 0);
+                    }
+                        break;
+                }
+            }
+        });
 
         tShirts = (ImageView) findViewById(R.id.t_shirts);
         sportsTShirts = (ImageView) findViewById(R.id.sports_t_shirts);
@@ -42,7 +78,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
         tShirts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
+                Intent intent = new Intent(SellerProductCategoryActivity.this, SellerAddNewProductActivity.class);
                 intent.putExtra("category", "tShirts");
                 startActivity(intent);
             }
@@ -52,7 +88,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
+                Intent intent = new Intent(SellerProductCategoryActivity.this, SellerAddNewProductActivity.class);
                 intent.putExtra("category", "Sports tShirts");
                 startActivity(intent);
             }
@@ -62,7 +98,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
+                Intent intent = new Intent(SellerProductCategoryActivity.this, SellerAddNewProductActivity.class);
                 intent.putExtra("category", "Female Dresses");
                 startActivity(intent);
             }
@@ -72,7 +108,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
+                Intent intent = new Intent(SellerProductCategoryActivity.this, SellerAddNewProductActivity.class);
                 intent.putExtra("category", "Sweathers");
                 startActivity(intent);
             }
@@ -82,7 +118,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
+                Intent intent = new Intent(SellerProductCategoryActivity.this, SellerAddNewProductActivity.class);
                 intent.putExtra("category", "HeadPhones HandFree");
                 startActivity(intent);
             }
@@ -92,7 +128,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
+                Intent intent = new Intent(SellerProductCategoryActivity.this, SellerAddNewProductActivity.class);
                 intent.putExtra("category", "Laptops");
                 startActivity(intent);
             }
@@ -102,7 +138,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
+                Intent intent = new Intent(SellerProductCategoryActivity.this, SellerAddNewProductActivity.class);
                 intent.putExtra("category", "Watches");
                 startActivity(intent);
             }
@@ -112,7 +148,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
+                Intent intent = new Intent(SellerProductCategoryActivity.this, SellerAddNewProductActivity.class);
                 intent.putExtra("category", "Mobile Phones");
                 startActivity(intent);
             }
@@ -122,7 +158,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
+                Intent intent = new Intent(SellerProductCategoryActivity.this, SellerAddNewProductActivity.class);
                 intent.putExtra("category", "Glasses");
                 startActivity(intent);
             }
@@ -133,7 +169,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
+                Intent intent = new Intent(SellerProductCategoryActivity.this, SellerAddNewProductActivity.class);
                 intent.putExtra("category", "Hats Caps");
                 startActivity(intent);
             }
@@ -143,7 +179,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
+                Intent intent = new Intent(SellerProductCategoryActivity.this, SellerAddNewProductActivity.class);
                 intent.putExtra("category", "Wallets Bags Purses");
                 startActivity(intent);
             }
@@ -153,31 +189,30 @@ public class AdminCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
+                Intent intent = new Intent(SellerProductCategoryActivity.this, SellerAddNewProductActivity.class);
                 intent.putExtra("category", "Shoes");
                 startActivity(intent);
             }
         });
 
-        adminLogoutBtn = findViewById(R.id.admin_logout);
-        adminLogoutBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AdminCategoryActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        adminMaintainProductBtn = findViewById(R.id.admin_maintainProduct);
-        adminMaintainProductBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AdminCategoryActivity.this, HomeActivity.class);
-                intent.putExtra("Admin", "Admin");
-                startActivity(intent);
-            }
-        });
-
+//        adminLogoutBtn = findViewById(R.id.admin_logout);
+//        adminLogoutBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(SellerProductCategoryActivity.this, LoginActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
+//
+//        adminMaintainProductBtn = findViewById(R.id.admin_maintainProduct);
+//        adminMaintainProductBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(SellerProductCategoryActivity.this, HomeActivity.class);
+//                intent.putExtra("Admin", "Admin");
+//                startActivity(intent);
+//            }
+//        });
     }
 }

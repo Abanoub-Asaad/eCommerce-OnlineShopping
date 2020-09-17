@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admin.AdminAddNewProductActivity">
+    tools:context=".Sellers.SellerAddNewProductActivity">
 
     <!--android:scaleType="centerCrop"-->
     <ImageView
@@ -86,5 +86,4 @@
         android:textSize="18sp"
         android:textStyle="bold"
         />
-
 </RelativeLayout>
