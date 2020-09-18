@@ -168,8 +168,6 @@ public class HomeActivity extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
 
-
-
                              //   Toast.makeText(HomeActivity.this, type,Toast.LENGTH_SHORT ).show();
                                 if(type.equals("Admin")){
                                     Intent intent = new Intent(HomeActivity.this, AdminMaintainProductsActivity.class);
@@ -212,32 +210,4 @@ public class HomeActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
-
-    /**
-     * when the user clicks back twice, he'll shut off the app
-     */
-    boolean doubleBackToExitPressedOnce = false;
-
-    @Override
-    public void onBackPressed() {
-        if (doubleBackToExitPressedOnce) {
-            super.onBackPressed();
-            finish();
-           // return;
-        }
-
-        this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT).show();
-
-        new Handler().postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                doubleBackToExitPressedOnce=false;
-                System.exit(0);
-            }
-        }, 2000);
-    }
-
 }

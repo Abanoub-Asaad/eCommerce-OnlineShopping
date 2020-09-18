@@ -4,44 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.cart.CartActivity">
+    tools:context=".Admin.AdminCheckNewProductsActivity">
 
     <RelativeLayout
-        android:id="@+id/rl11"
+        android:id="@+id/rl_admin_check_approve_products"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/colorPrimary"
         android:layout_alignParentTop="true">
 
         <TextView
-            android:id="@+id/total_price"
+            android:id="@+id/text_admin_check_approve_products"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
             android:textSize="20dp"
-            android:text="Cart"
+            android:text="Approve new Products"
+            android:textStyle="bold"
             android:textAlignment="center"
             android:layout_marginTop="10dp"
             />
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/cart_list_recyclerView"
+        android:id="@+id/admin_products_checkList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/rl11"
-        android:layout_above="@+id/next_btn"
-        ></androidx.recyclerview.widget.RecyclerView>
-
-    <Button
-        android:id="@+id/next_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimary"
-        android:text="Next"
-        android:textColor="@android:color/white"
-        android:textSize="20dp"
-        />
-
+        android:layout_below="@+id/rl_admin_check_approve_products">
+    </androidx.recyclerview.widget.RecyclerView>
+    
 </RelativeLayout>

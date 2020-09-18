@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.e_commerce.Admin.AdminHomeActivity;
 import com.example.e_commerce.Model.Users;
 import com.example.e_commerce.Prevalent.Prevalent;
 import com.example.e_commerce.Sellers.SellerProductCategoryActivity;
@@ -182,7 +183,7 @@ public class LoginActivity extends AppCompatActivity {
                             loadingBar.dismiss();
                             Toast.makeText(LoginActivity.this, "Welcome Admin, you are logged in Successfully...", Toast.LENGTH_SHORT).show();
 
-                            Intent intent = new Intent(LoginActivity.this, SellerProductCategoryActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
                             startActivity(intent);
                         }
                     } else {

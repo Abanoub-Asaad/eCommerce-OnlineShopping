@@ -194,25 +194,5 @@ public class SellerProductCategoryActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-//        adminLogoutBtn = findViewById(R.id.admin_logout);
-//        adminLogoutBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(SellerProductCategoryActivity.this, LoginActivity.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
-//
-//        adminMaintainProductBtn = findViewById(R.id.admin_maintainProduct);
-//        adminMaintainProductBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(SellerProductCategoryActivity.this, HomeActivity.class);
-//                intent.putExtra("Admin", "Admin");
-//                startActivity(intent);
-//            }
-//        });
     }
 }
