@@ -9,11 +9,16 @@ import android.os.Bundle;
 import com.hololo.tutorial.library.Step;
 import com.hololo.tutorial.library.TutorialActivity;
 
+import io.kommunicate.Kommunicate;
+
 public class SplashActivity extends TutorialActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Connect to Kommunicate and Dialogflow for chatbot
+        //Kommunicate.init(getApplicationContext(), "a9bcb7711de0b89c3f34740a58351086");
 
         //First Slide
         addFragment(new Step.Builder().setTitle("Wecome to Our Online Shopping")

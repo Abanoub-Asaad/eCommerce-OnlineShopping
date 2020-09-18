@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -24,6 +25,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import io.kommunicate.KmConversationBuilder;
+import io.kommunicate.Kommunicate;
+import io.kommunicate.callbacks.KmCallback;
 import io.paperdb.Paper;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,6 +42,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //----------- Chat Bot --------------------------------------------
+       // Kommunicate.openConversation(MainActivity.this);
+
+//        new KmConversationBuilder(MainActivity.this)
+//                .setConversationTitle("Customer Service")
+//                .setSingleConversation(false)
+//                .launchConversation(new KmCallback() {
+//                    @Override
+//                    public void onSuccess(Object message) {
+//                        //you can store this some where and later use to re-open the converation.
+//                        String conversationId = message.toString();
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Object error) {
+//
+//                    }
+//                });
+
+        //-------------------------------------------------------------------
         joinNowButton = (Button) findViewById(R.id.main_join_now_btn);
         loginbutton = (Button) findViewById(R.id.main_login_btn);
         sellerLink = findViewById(R.id.seller_panel_link);

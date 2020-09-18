@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.e_commerce.ConfirmFinalOrderActivity;
 import com.example.e_commerce.HomeActivity;
+import com.example.e_commerce.MainActivity;
 import com.example.e_commerce.Model.CartList;
 import com.example.e_commerce.Prevalent.Prevalent;
 import com.example.e_commerce.ProductDetailsActivity;
@@ -30,6 +31,8 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
+
+import io.kommunicate.Kommunicate;
 
 public class CartActivity extends AppCompatActivity {
 
