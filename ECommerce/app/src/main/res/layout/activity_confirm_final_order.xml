@@ -11,19 +11,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Please write your shippment details"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorPrimaryDark"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:layout_margin="25dp"></TextView>
+
+    <TextView
+        android:id="@+id/line1_confirm_final_order_activity"
+        style="?android:attr/listSeparatorTextViewStyle"
+        android:paddingTop="5dip"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/shippment_txt"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_height="1dp"
+        android:background="#000" />
 
     <EditText
         android:id="@+id/shippment_userName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/shippment_txt"
+        android:layout_below="@id/line1_confirm_final_order_activity"
         android:hint="Your Name"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:textStyle="bold"></EditText>
