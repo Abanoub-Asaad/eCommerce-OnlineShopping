@@ -2,22 +2,23 @@ package com.example.e_commerce.Model;
 
 public class Products {
 
-        private String product_name, product_price, product_description, product_id, date, time, product_image, category;
+        private String product_name, product_price, product_description, product_id, date, time, product_image, category, productState;
 
         public Products(){
 
         }
 
-        public Products(String product_name, String product_price, String product_description, String product_id, String date, String time, String product_image, String category) {
-                this.product_name = product_name;
-                this.product_price = product_price;
-                this.product_description = product_description;
-                this.product_id = product_id;
-                this.date = date;
-                this.time = time;
-                this.product_image = product_image;
-                this.category = category;
-        }
+    public Products(String product_name, String product_price, String product_description, String product_id, String date, String time, String product_image, String category, String productState) {
+        this.product_name = product_name;
+        this.product_price = product_price;
+        this.product_description = product_description;
+        this.product_id = product_id;
+        this.date = date;
+        this.time = time;
+        this.product_image = product_image;
+        this.category = category;
+        this.productState = productState;
+    }
 
     public String getProduct_name() {
         return product_name;
@@ -81,5 +82,13 @@ public class Products {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getProductState() {
+        return productState;
+    }
+
+    public void setProductState(String productState) {
+        this.productState = productState;
     }
 }

@@ -14,7 +14,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:layout_margin="25dp"></TextView>
 
     <TextView

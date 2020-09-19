@@ -81,7 +81,7 @@ public class AdminCheckNewProductsActivity extends AppCompatActivity {
                                     @Override
                                     public void onClick(DialogInterface dialog, int i) {
                                         if(i==0)
-                                            changeProductState(productId);  
+                                            changeProductState(productId);
                                     }
                                 });
                                 builder.show();
