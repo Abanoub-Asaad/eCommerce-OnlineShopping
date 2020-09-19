@@ -17,9 +17,6 @@ public class SplashActivity extends TutorialActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Connect to Kommunicate and Dialogflow for chatbot
-        //Kommunicate.init(getApplicationContext(), "a9bcb7711de0b89c3f34740a58351086");
-
         //First Slide
         addFragment(new Step.Builder().setTitle("Wecome to Our Online Shopping")
                 .setContent("You will find all what you need")

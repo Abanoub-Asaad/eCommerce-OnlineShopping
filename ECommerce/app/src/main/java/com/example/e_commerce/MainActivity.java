@@ -42,26 +42,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //----------- Chat Bot --------------------------------------------
-       // Kommunicate.openConversation(MainActivity.this);
-
-//        new KmConversationBuilder(MainActivity.this)
-//                .setConversationTitle("Customer Service")
-//                .setSingleConversation(false)
-//                .launchConversation(new KmCallback() {
-//                    @Override
-//                    public void onSuccess(Object message) {
-//                        //you can store this some where and later use to re-open the converation.
-//                        String conversationId = message.toString();
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Object error) {
-//
-//                    }
-//                });
-
-        //-------------------------------------------------------------------
         joinNowButton = (Button) findViewById(R.id.main_join_now_btn);
         loginbutton = (Button) findViewById(R.id.main_login_btn);
         sellerLink = findViewById(R.id.seller_panel_link);
