@@ -36,7 +36,7 @@ public class SellerHomeActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
-    private DatabaseReference unverifiedProductsRef;
+    private DatabaseReference sellerProductsRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class SellerHomeActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        unverifiedProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
+        sellerProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
         bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
             @Override
@@ -90,7 +90,7 @@ public class SellerHomeActivity extends AppCompatActivity {
 
         FirebaseRecyclerOptions<Products> options =
                 new FirebaseRecyclerOptions.Builder<Products>()
-                        .setQuery(unverifiedProductsRef.orderByChild("seller_id").equalTo(FirebaseAuth.getInstance().getCurrentUser().getUid()), Products.class)
+                        .setQuery(sellerProductsRef.orderByChild("sellerId").equalTo(FirebaseAuth.getInstance().getCurrentUser().getUid()), Products.class)
                         .build();
 
         FirebaseRecyclerAdapter<Products, ItemViewHolderSeller> adapter =
@@ -143,7 +143,7 @@ public class SellerHomeActivity extends AppCompatActivity {
     }
 
     private void deleteProduct(String productId) {
-        unverifiedProductsRef.child(productId)
+        sellerProductsRef.child(productId)
                 .removeValue()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
