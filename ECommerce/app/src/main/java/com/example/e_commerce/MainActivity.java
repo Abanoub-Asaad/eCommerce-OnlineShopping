@@ -25,9 +25,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import io.kommunicate.KmConversationBuilder;
-import io.kommunicate.Kommunicate;
-import io.kommunicate.callbacks.KmCallback;
 import io.paperdb.Paper;
 
 public class MainActivity extends AppCompatActivity {

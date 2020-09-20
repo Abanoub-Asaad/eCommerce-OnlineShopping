@@ -53,6 +53,13 @@
         android:name="com.example.e_commerce.ui.cart.CartActivity"
         android:label="Cart"
         tools:layout="@layout/activity_cart" />
+
+    <activity
+        android:id="@+id/nav_contact_us"
+        android:name="com.example.e_commerce.ui.contactUs.ContactUsActivity"
+        android:label="Contact Us"
+        tools:layout="@layout/activity_contact_us" />
+
     <activity
         android:id="@+id/nav_search"
         android:name="com.example.e_commerce.ui.search.SearchProductsActivity"

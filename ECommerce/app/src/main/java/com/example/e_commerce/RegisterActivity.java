@@ -30,7 +30,6 @@ public class RegisterActivity extends AppCompatActivity {
     private Button createAccountButton;
     private EditText inputName, inputPhoneNumber, inputPassword;
     private ProgressDialog loadingBar;
-    private ImageView eye_password_register;
     private boolean passwordIsHidden = true;
 
     @Override
@@ -42,7 +41,6 @@ public class RegisterActivity extends AppCompatActivity {
         inputName = (EditText) findViewById(R.id.register_username_input);
         inputPhoneNumber = (EditText) findViewById(R.id.register_phone_input);
         inputPassword = (EditText) findViewById(R.id.register_password_input);
-        eye_password_register = (ImageView) findViewById(R.id.eye_register);
 
         createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,31 +48,6 @@ public class RegisterActivity extends AppCompatActivity {
                 creatAccount();
             }
         });
-
-        eye_password_register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (passwordIsHidden) {
-                    // show password
-                    passwordIsHidden = false;
-                    inputPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-
-                    ImageView image_view  = (ImageView) findViewById(R.id.eye_register);
-                    image_view.setImageResource(R.drawable.invisible_eye);
-                } else {
-                    // hide password
-                    passwordIsHidden = true;
-                    inputPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
-
-                    ImageView image_view  = (ImageView) findViewById(R.id.eye_register);
-                    image_view.setImageResource(R.drawable.eye);
-                }
-                // set cursor to the end of the password text
-                inputPassword.setSelection(inputPassword.getText().toString().length());
-            }
-        });
-
     }
 
     private void creatAccount() {

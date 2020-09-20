@@ -4,125 +4,124 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_of_ui"
     tools:context=".RegisterActivity">
 
-    <ImageView
-        android:id="@+id/register_applogo"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_centerHorizontal="true"
-        android:scaleType="fitXY"
-        android:src="@drawable/user_register_back_2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></ImageView>
-
     <TextView
-        android:id="@+id/app_slogan_register"
-        android:layout_width="260dp"
+        android:id="@+id/txtView_register"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
         android:fontFamily="@font/abril_fatface"
-        android:text="User SignUp"
+        android:gravity="center"
+        android:text="User  SignUp"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="25sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_applogo" />
-
-    <EditText
-        android:id="@+id/register_username_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/app_slogan_register"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:background="@drawable/input_design"
-        android:hint="Name"
-        android:maxLines="1"
-        android:padding="20dp"
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorAbnb3"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_slogan_register" />
-
-    <EditText
-        android:id="@+id/register_phone_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/register_username_input"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/input_design"
-        android:hint="Phone Number"
-        android:inputType="number"
-        android:padding="20dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorAbnb3"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_username_input" />
-
-    <EditText
-        android:id="@+id/register_password_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/register_phone_input"
-        android:layout_gravity="center_vertical"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="15dp"
-        android:background="@drawable/input_design"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:padding="20dp"
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorAbnb3"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_phone_input" />
-
-    <Button
-        android:id="@+id/register_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/register_password_input"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
-        android:background="@drawable/buttons"
-        android:padding="17dp"
-        android:text="Create an Account"
-        android:textAllCaps="false"
         android:textColor="@android:color/white"
-        android:textSize="18sp"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.193" />
+
+    <LinearLayout
+        android:layout_width="329dp"
+        android:layout_height="300dp"
+        android:layout_margin="40dp"
+        android:background="@android:color/white"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_password_input" />
+        app:layout_constraintTop_toBottomOf="@+id/txtView_register"
+        app:layout_editor_absoluteX="16dp"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:src="@drawable/user_name"></ImageView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/register_username_input"
+                android:hint="Name"
+                android:textStyle="bold"
+                android:maxLength="18"
+                android:textColor="@android:color/black"></EditText>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/phone"></ImageView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/register_phone_input"
+                android:hint="Phone Number"
+                android:inputType="number"
+                android:textStyle="bold"
+                android:maxLength="18"
+                android:textColor="@android:color/black"></EditText>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:src="@drawable/password"></ImageView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/register_password_input"
+                android:hint="Password"
+                android:maxLength="18"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"></EditText>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/register_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SignUp"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="16dp"
+            android:background="#32127a"></Button>
+    </LinearLayout>
 
     <ImageView
-        android:id="@+id/eye_register"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="5dp"
-        android:layout_gravity="center_vertical"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:src="@drawable/user1"
+        android:id="@+id/register_logo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.955"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/register_password_input"
-        app:srcCompat="@drawable/eye" />
+        app:layout_constraintTop_toBottomOf="@+id/txtView_register" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -32,8 +32,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
-import io.kommunicate.Kommunicate;
-
 public class CartActivity extends AppCompatActivity {
 
     private RecyclerView cartListRecyclerView;

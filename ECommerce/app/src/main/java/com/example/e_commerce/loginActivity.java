@@ -53,7 +53,6 @@ public class LoginActivity extends AppCompatActivity {
         chkBoxRememberMe = (CheckBox) findViewById(R.id.remember_me_check_box);
         adminLink = (TextView) findViewById(R.id.admin_panel_link);
         notAdminLink = (TextView) findViewById(R.id.not_admin_panel_link);
-        eye_password_login = (ImageView) findViewById(R.id.eye_login);
         loadingBar = new ProgressDialog(LoginActivity.this);
         forgetPassLink = findViewById(R.id.forget_password);
 
@@ -89,30 +88,6 @@ public class LoginActivity extends AppCompatActivity {
                 forgetPassLink.setVisibility(View.VISIBLE);
                 chkBoxRememberMe.setVisibility(View.VISIBLE);
                 parentDbName = "Users";
-            }
-        });
-
-        eye_password_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (passwordIsHidden) {
-                    // show password
-                    passwordIsHidden = false;
-                    passwordEditText.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-
-                    ImageView image_view = (ImageView) findViewById(R.id.eye_login);
-                    image_view.setImageResource(R.drawable.invisible_eye);
-                } else {
-                    // hide password
-                    passwordIsHidden = true;
-                    passwordEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
-
-                    ImageView image_view = (ImageView) findViewById(R.id.eye_login);
-                    image_view.setImageResource(R.drawable.eye);
-                }
-                // set cursor to the end of the password text
-                passwordEditText.setSelection(passwordEditText.getText().toString().length());
             }
         });
 
