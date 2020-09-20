@@ -59,7 +59,7 @@ public class AdminCheckNewProductsActivity extends AppCompatActivity {
                     @Override
                     protected void onBindViewHolder(@NonNull ProductViewHolder productViewHolder, int position, @NonNull Products products) {
                         productViewHolder.txtProductName.setText(products.getProduct_name());
-                        productViewHolder.txtProductPrice.setText("Price = " + products.getProduct_price());
+                        productViewHolder.txtProductPrice.setText("Price = " + products.getProduct_price()+" $");
                         productViewHolder.txtProductDescription.setText(products.getProduct_description());
                         Picasso.get().load(products.getProduct_image()).into(productViewHolder.imageView);
 

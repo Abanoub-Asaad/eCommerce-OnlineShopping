@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".Admin.AdminHomeActivity">
 
+    <ImageView
+        android:id="@+id/imageView_admin_home"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/admin_backk" />
+
     <Button
         android:id="@+id/admin_check_approve_products"
         style="bold"
@@ -14,11 +25,26 @@
         android:layout_below="@+id/admin_maintainProduct"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="25dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="388dp"
         android:background="@drawable/abnb_design"
         android:text="Check and Apprrove new Products"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/admin_logout"
+        style="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/admin_check_approve_products"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/abnb_design"
+        android:text="Logout"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="18sp" />
@@ -27,12 +53,12 @@
         android:id="@+id/welcome_text_admin_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:text="Welcome Admin"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryDark"
+        android:layout_below="@+id/imageView_admin_home"
         android:textSize="26sp"
         android:textStyle="bold" />
 
@@ -57,27 +83,11 @@
         android:layout_below="@+id/welcome_text_admin_home"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="45dp"
         android:layout_marginRight="10dp"
         android:accessibilityLiveRegion="@android:integer/config_longAnimTime"
         android:background="@drawable/abnb_design"
         android:text="Maintain Product"
-        android:textColor="@android:color/white"
-        android:textSize="18sp" />
-
-    <Button
-        android:id="@+id/admin_logout"
-        style="bold"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="31dp"
-        android:background="@drawable/abnb_design"
-        android:text="Logout"
-        android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="18sp" />
 

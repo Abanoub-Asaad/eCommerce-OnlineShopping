@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/welcome"
     tools:context=".MainActivity">
 
   <ImageView
@@ -28,7 +29,7 @@
       android:fontFamily="@font/berkshire_swash"
       android:text="Find, Discover, Choose and Buy anything Online"
       android:textAlignment="center"
-      android:textColor="@color/colorPrimary"
+      android:textColor="@color/colorAbnb2"
       android:textSize="22sp"
       android:textStyle="bold|italic"
       app:layout_constraintEnd_toEndOf="parent"
@@ -48,7 +49,7 @@
       android:text="Join Now"
       android:textStyle="bold"
       android:textAllCaps="false"
-      android:textColor="@color/colorPrimaryDark"
+      android:textColor="@android:color/white"
       android:textSize="18sp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.473"
@@ -69,7 +70,7 @@
       android:padding="20dp"
       android:text="Already have an Account? Login"
       android:textAllCaps="false"
-      android:textColor="@color/colorPrimaryDark"
+      android:textColor="@android:color/white"
       android:textSize="18sp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
@@ -85,7 +86,7 @@
       android:layout_below="@+id/main_login_btn"
       android:layout_alignParentEnd="true"
       android:text="Want to be a seller?"
-      android:textColor="@color/colorPrimaryDark"
+      android:textColor="@android:color/white"
       android:textSize="17sp"
       android:textStyle="bold"
       app:layout_constraintBottom_toBottomOf="parent"

@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.contactUs.ContactUsActivity"></activity>
+        <activity android:name=".Admin.AdminAllProductsActivity"></activity>
+        <activity android:name=".ui.contactUs.ContactUsActivity" />
         <activity android:name=".Admin.AdminCheckNewProductsActivity" />
         <activity android:name=".Admin.AdminHomeActivity" />
         <activity android:name=".Sellers.SellerAddNewProductActivity" />
@@ -48,8 +49,8 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>

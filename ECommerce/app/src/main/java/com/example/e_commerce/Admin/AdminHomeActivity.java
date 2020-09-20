@@ -10,7 +10,6 @@ import android.widget.Button;
 import com.example.e_commerce.HomeActivity;
 import com.example.e_commerce.LoginActivity;
 import com.example.e_commerce.R;
-import com.example.e_commerce.Sellers.SellerProductCategoryActivity;
 
 public class AdminHomeActivity extends AppCompatActivity {
 
@@ -37,8 +36,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         adminMaintainProductBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminHomeActivity.this, HomeActivity.class);
-                intent.putExtra("Admin", "Admin");
+                Intent intent = new Intent(AdminHomeActivity.this, AdminAllProductsActivity.class);
                 startActivity(intent);
             }
         });
@@ -52,3 +50,4 @@ public class AdminHomeActivity extends AppCompatActivity {
         });
     }
 }
+

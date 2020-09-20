@@ -53,7 +53,6 @@ public class HomeActivity extends AppCompatActivity {
     private ArrayList<Products> arrayList;
     private FirebaseRecyclerOptions<Products> options;
     private FirebaseRecyclerAdapter<Products, ProductViewHolder> adapter;
-    private String type="" ;
 
     @Override
     protected void onStart() {
@@ -75,21 +74,11 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-
-        if( bundle!= null )
-            type = getIntent().getExtras().get("Admin").toString();
-
         Paper.init(HomeActivity.this);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//---------------------------------------------------------------------------------------
-//        getSupportActionBar().setHomeButtonEnabled(true);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setHomeAsUpIndicator(R.drawable.orders);
-//---------------------------------------------------------------------------------------
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,13 +110,8 @@ public class HomeActivity extends AppCompatActivity {
         //Set image at navigation drawer
         profileImageView = (CircleImageView)headerView.findViewById(R.id.profile_image);
 
-        if(!type.equals("Admin")){
-            navUsername.setText(Prevalent.currentOnlineUser.getName());
-            Picasso.get().load(Prevalent.currentOnlineUser.getImage()).into(profileImageView);
-        }else{
-            navUsername.setText("Admin");
-           // Picasso.get().load(R.drawable.admin).into(profileImageView);
-        }
+        navUsername.setText(Prevalent.currentOnlineUser.getName());
+        Picasso.get().load(Prevalent.currentOnlineUser.getImage()).into(profileImageView);
 
 
         ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
@@ -159,7 +143,7 @@ public class HomeActivity extends AppCompatActivity {
                     protected void onBindViewHolder(@NonNull ProductViewHolder productViewHolder, int i, @NonNull final Products products) {
 
                         productViewHolder.txtProductName.setText(products.getProduct_name());
-                        productViewHolder.txtProductPrice.setText("Price = " + products.getProduct_price());
+                        productViewHolder.txtProductPrice.setText("Price = " + products.getProduct_price()+" $");
                         productViewHolder.txtProductDescription.setText(products.getProduct_description());
 
                         Picasso.get().load(products.getProduct_image()).into(productViewHolder.imageView);
@@ -168,17 +152,9 @@ public class HomeActivity extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
 
-                             //   Toast.makeText(HomeActivity.this, type,Toast.LENGTH_SHORT ).show();
-                                if(type.equals("Admin")){
-                                    Intent intent = new Intent(HomeActivity.this, AdminMaintainProductsActivity.class);
-                                    intent.putExtra("product_id", products.getProduct_id());
-                                    startActivity(intent);
-                                }else {
-                                    Intent intent = new Intent(HomeActivity.this, ProductDetailsActivity.class);
-                                    intent.putExtra("product_id", products.getProduct_id());
-                                    startActivity(intent);
-                                }
-
+                                Intent intent = new Intent(HomeActivity.this, ProductDetailsActivity.class);
+                                intent.putExtra("product_id", products.getProduct_id());
+                                startActivity(intent);
                             }
                         });
                     }

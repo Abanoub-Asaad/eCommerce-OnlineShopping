@@ -98,6 +98,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/register_password_input"
+                android:inputType="textPassword"
                 android:hint="Password"
                 android:maxLength="18"
                 android:textStyle="bold"
