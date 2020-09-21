@@ -1,5 +1,9 @@
 # E-Commerce
-An android application for Online Shopping.
+## An android application for Online Shopping using Java and Firebase.
+
+Click below to see A DEMO for the Project 
+| :----------------------------------------------------------: |
+| **[GAME BOX](https://youtu.be/ovkFxWveUo0)**  |
 
 
 ### CheckBox design: [Matrial](https://github.com/rey5137/material)
